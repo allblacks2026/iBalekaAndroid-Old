@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "54659035894",
+    "project_id": "solar-melody-129713"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:54659035894:android:613ccc3de8966b6c",
+        "android_client_info": {
+          "package_name": "allblacks.com.ibaleka_android_prototype"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "54659035894-0rbteijpdq27ht3nouove6gvrhvnn3du.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "allblacks.com.ibaleka_android_prototype",
+            "certificate_hash": "886CE194EFBB281BB395BB76C2D63BE10914F552"
+          }
+        },
+        {
+          "client_id": "54659035894-hbukaaqnsbrjj6cv30unmec2n4shripi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDXMQFRTA-9ljgH70jMmbKPasyoIqLzpks"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

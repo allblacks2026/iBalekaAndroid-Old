@@ -1,0 +1,56 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="allblacks.com.Activities.MainActivity"
+    android:orientation="vertical">
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id = "@+id/MainActivityToolbar"
+        android:background="@color/primary"
+        >
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:id = "@+id/MainActivityImageView"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="1dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/ToolbarTextView"
+            android:id = "@+id/MainActivityTextView"
+            android:textAlignment="center"
+            />
+    </android.support.v7.widget.Toolbar>
+    <android.support.v4.widget.DrawerLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id = "@+id/menuDrawerLayout"
+        >
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id = "@+id/mainActivityScrollView"
+            android:fillViewport="true"
+            >
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id = "@+id/MainActivityContentArea"
+                >
+            </RelativeLayout>
+        </ScrollView>
+        <android.support.design.widget.NavigationView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id = "@+id/mainActivityNavigationView"
+            android:layout_gravity="start"
+            android:textAlignment="center"
+            app:itemTextColor="@android:color/black"
+            ></android.support.design.widget.NavigationView>
+    </android.support.v4.widget.DrawerLayout>
+</LinearLayout>

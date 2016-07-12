@@ -1,0 +1,65 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context="Fragments.LoginFragment">
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        tools:context="koeksworld.com.ibaleka_prototype.LoginActivity">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+
+                    android:layout_marginTop="50dp"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:src="@drawable/ibaleka_logo"
+                    android:layout_centerHorizontal="true"
+                    android:id = "@+id/imageView"/>
+
+                <EditText
+                    style="@style/EditTexStyle"
+                    android:id = "@+id/usernameEditText"
+                    android:layout_below="@id/imageView"
+                    android:hint="@string/username_text"
+                    />
+
+                <EditText
+                    style="@style/EditTexStyle"
+                    android:id = "@+id/passwordEditText"
+                    android:inputType="textPassword"
+                    android:layout_below="@id/usernameEditText"
+                    android:hint="@string/password_text"
+                    android:layout_marginTop="10dp"/>
+
+                <Button
+                    style="@style/ButtonStyle"
+                    android:id="@+id/loginButton"
+                    android:layout_below="@id/passwordEditText"
+                    android:text="@string/login_text"/>
+                <Button
+                    style="@style/ButtonStyle"
+                    android:text="@string/forgot_password_text"
+                    android:layout_below="@id/loginButton"
+                    android:id = "@+id/forgotPasswordButton"/>
+                <Button
+                    android:layout_below="@id/forgotPasswordButton"
+                    style="@style/ButtonStyle"
+                    android:id = "@+id/registerAccountbtn"
+                    android:text="@string/create_account_text"
+                    />
+            </RelativeLayout>
+        </ScrollView>
+    </RelativeLayout>
+
+</FrameLayout>

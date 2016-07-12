@@ -1,0 +1,43 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context="Fragments.CreateAccountStepTwoFragment">
+    <TextView
+        style="@style/TextViewStyle"
+        android:text="@string/account_reg_text"
+        android:layout_alignParentTop="true"
+        android:id = "@+id/createAccountTextView"/>
+
+    <EditText
+        style="@style/EditTexStyle"
+        android:hint="@string/username_text"
+        android:id = "@+id/UsernameEditText"
+        android:layout_below="@id/createAccountTextView"/>
+    <EditText
+        style="@style/EditTexStyle"
+        android:hint="@string/password_text"
+        android:inputType="textPassword"
+        android:id = "@+id/PasswordEditText"
+        android:layout_below="@id/UsernameEditText"/>
+    <EditText
+        style="@style/EditTexStyle"
+        android:id = "@+id/SecurityQuestionEditText"
+        android:hint="@string/security_question_text"
+        android:layout_below="@id/PasswordEditText"/>
+    <EditText
+        style="@style/EditTexStyle"
+        android:hint="@string/security_answer_text"
+        android:maxLines="3"
+        android:id = "@+id/SecurityAnswerEditText"
+        android:layout_below="@id/SecurityQuestionEditText"/>
+
+    <Button
+        style="@style/ButtonStyle"
+        android:text="@string/create_account_text"
+        android:id = "@+id/CreateAccountButton"
+        android:layout_below="@id/SecurityAnswerEditText"/>
+
+
+
+</RelativeLayout>

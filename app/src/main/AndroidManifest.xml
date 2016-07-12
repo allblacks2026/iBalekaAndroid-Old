@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest package="allblacks.com.Activities"
+          xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.BODY_SENSORS"/>
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ibaleka_logo"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:largeHeap="true"
+        android:name="android.support.multidex.MultiDexApplication"
+        >
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyDXMQFRTA-9ljgH70jMmbKPasyoIqLzpks"/>
+        <activity android:name="allblacks.com.Activities.AppSplashScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="allblacks.com.Activities.LoginActivity"
+                  android:windowSoftInputMode="stateUnchanged">
+        </activity>
+        <activity android:name="allblacks.com.Activities.MainActivity">
+        </activity>
+    </application>
+</manifest>

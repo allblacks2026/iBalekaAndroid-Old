@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<group
+    android:checkableBehavior="single"
+    >
+    <item android:id = "@+id/finalizeRoute"
+          android:title = "@string/finalize_route_string"
+          android:icon = "@drawable/ic_done"/>
+    <item android:id = "@+id/clearCheckpoints"
+          android:title = "@string/clear_mapped_route"
+          android:icon ="@drawable/ic_clear"/>
+    <item android:id="@+id/viewTotalDistance"
+          android:title="@string/total_kilometres_string"
+          android:icon="@drawable/ic_timeline"/>
+</group>
+</menu>
