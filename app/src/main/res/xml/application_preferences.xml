@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+    <PreferenceCategory
+        android:title="@string/login_settings"
+        android:id = "@+id/authenticationGroup"
+        android:key="authentication_group"
+        >
+        <CheckBoxPreference
+            android:id="@+id/rememberCredentialsOption"
+            android:summary="@string/remember_login_credentials_string"
+            android:title="Remember My Credentials"
+            android:checked="false"
+            android:textColor="#000"
+            android:defaultValue="false"
+            android:key="remember_credentials"
+            ></CheckBoxPreference>
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:title="@string/app_measurement_string"
+        >
+    <ListPreference
+        android:id="@+id/appMeasurnementOptons"
+        android:title="@string/select_measurment_string"
+        android:entries="@array/metricsArray"
+        android:entryValues="@array/metricsArray"
+        android:summary="@string/select_measurment_string"
+        android:defaultValue="false"
+        android:key="measurment_setting"
+        ></ListPreference>
+    </PreferenceCategory>
+</PreferenceScreen>

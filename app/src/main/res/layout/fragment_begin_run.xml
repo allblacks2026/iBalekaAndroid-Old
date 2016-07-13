@@ -1,0 +1,29 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context="Fragments.BeginRunFragment"
+             android:orientation="vertical"
+            android:weightSum="100">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id = "@+id/BeginRunHeadingTextView"
+        android:text="@string/begin_run_string"
+        android:textAlignment="center"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="100"
+        android:id = "@+id/BeginRunFragmentContentArea"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id = "@+id/BeginRunButton"
+        android:text="@string/begin_run"
+        android:layout_gravity="bottom"
+        android:background="@drawable/custom_button"
+        android:textColor="@android:color/white"/>
+</LinearLayout>

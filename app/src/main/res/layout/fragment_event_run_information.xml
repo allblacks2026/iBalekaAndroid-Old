@@ -1,0 +1,112 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context="Fragments.EventRunInformationFragment"
+    android:orientation="vertical"
+    android:weightSum="100">
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id = "@+id/EventInformationCardView">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                style="@style/TextViewStyle"
+                android:id = "@+id/EventHeading"
+                android:text="@string/heading_event_title"
+                android:background="@color/primary_dark"
+                android:textColor="@android:color/white"
+                android:layout_width="match_parent"
+                />
+            <TextView
+                style="@style/TextViewStyle"
+                android:id = "@+id/EventNameLabel"
+                android:text="@string/event_name_string"
+                android:layout_below="@id/EventHeading"
+                android:layout_alignParentStart="true"
+                android:layout_margin="5dp"/>
+            <TextView
+                style="@style/TextViewStyle"
+                android:id = "@+id/EventNameTextView"
+                android:text="@string/sample_event_name"
+                android:layout_below="@id/EventHeading"
+                android:layout_alignParentEnd="true"/>
+            <TextView
+                style="@style/TextViewStyle"
+                android:id = "@+id/EventLocationLabel"
+                android:text="@string/event_location"
+                android:layout_below="@id/EventNameLabel"
+                android:layout_alignParentStart="true"/>
+            <TextView
+                style="@style/TextViewStyle"
+                android:id = "@+id/EventLocationTextView"
+                android:text="@string/sample_location_string"
+                android:layout_below="@id/EventNameTextView"
+                android:layout_alignParentEnd="true"
+                />
+            <TextView
+                style="@style/TextViewStyle"
+                android:id = "@+id/EventDateLabel"
+                android:text="@string/event_date_string"
+                android:layout_below="@id/EventLocationLabel"
+                android:layout_alignParentStart="true"
+                />
+            <TextView
+                style="@style/TextViewStyle"
+                android:id = "@+id/EventDateEditText"
+                android:text="@string/sample_registration_date"
+                android:layout_below="@id/EventLocationTextView"
+                android:layout_alignParentEnd="true"/>
+            <TextView
+                style="@style/TextViewStyle"
+                android:id = "@+id/ParticipantsLabel"
+                android:text="@string/participants_label"
+                android:layout_below="@id/EventDateLabel"
+                android:layout_alignParentStart="true"/>
+            <TextView
+                style="@style/TextViewStyle"
+                android:id="@+id/ParticipantsTextView"
+                android:text="10"
+                android:layout_below="@id/EventDateEditText"
+                android:layout_alignParentEnd="true"
+                />
+            <TextView
+                style="@style/TextViewStyle"
+                android:id = "@+id/EventDistanceLabel"
+                android:text="@string/total_distance_label"
+                android:layout_below="@id/ParticipantsLabel"/>
+            <TextView
+                style="@style/TextViewStyle"
+                android:id="@+id/DistanceTextView"
+                android:text="@string/sample_distance_covered"
+                android:layout_below="@id/ParticipantsTextView"
+                android:layout_alignParentEnd="true"/>
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:id ="@+id/EventMapCardView"
+        android:layout_weight="60"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                style="@style/TextViewStyle"
+                android:text="@string/map_information_string"
+                android:background="@color/primary_dark"
+                android:textColor="@color/whiteColor"/>
+            <com.google.android.gms.maps.MapView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="visible"
+                ></com.google.android.gms.maps.MapView>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+</LinearLayout>

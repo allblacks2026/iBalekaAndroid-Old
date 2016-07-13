@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="72dp"
+                android:background ="@drawable/nav_header">
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_margin="15dp"
+        android:id = "@+id/profileImage"
+        android:src="@drawable/ibaleka_logo"
+        android:layout_alignParentStart="true"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:textColor="@color/whiteColor"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:layout_height="wrap_content"
+        android:id = "@+id/profileNameSurname"
+        android:layout_below="@id/profileImage"
+        android:layout_alignParentStart="true"
+        android:text="@string/sample_profile_nameSurname"/>
+    <TextView
+        android:textSize="14sp"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/whiteColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sample_email_Address"
+        android:id = "@+id/profileEmailAddress"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/profileNameSurname"/>
+</RelativeLayout>

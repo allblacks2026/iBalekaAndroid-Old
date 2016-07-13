@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="allblacks.com.Activities.AppSplashScreen"
+        >
+        <ImageView
+            android:layout_width="350dp"
+            android:layout_height="350dp"
+            android:layout_centerVertical="true"
+           android:layout_centerHorizontal="true"
+            android:src="@drawable/ibaleka_logo"
+            android:id = "@+id/loadingLogo"/>
+
+        <TextView
+            style="@style/TextViewStyle"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id = "@+id/LoadingScreenTextView"
+            android:text="@string/app_loading"
+            android:textStyle="bold"
+            android:layout_below="@id/loadingLogo"/>
+    </RelativeLayout>

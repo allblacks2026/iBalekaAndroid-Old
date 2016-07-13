@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:id = "@+id/athleteHeaderCardView">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:id = "@+id/profilePictureImageView"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="5dp"
+                android:src="@drawable/person_profile"/>
+            <TextView
+                style="@style/TextViewStyle"
+                android:text="@string/sample_profile_nameSurname"
+                android:layout_gravity="center_horizontal"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:id = "@+id/profileNameSurnameTextView"
+                android:layout_margin="5dp"/>
+            <TextView
+                style="@style/TextViewStyle"
+                android:text="@string/profile_type_string"
+                android:textStyle="bold|italic"
+                android:textSize="20dp"
+                android:layout_gravity="center_horizontal"/>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/athleteHeaderCardView"
+        android:layout_margin="5dp"
+        android:id = "@+id/athleteDetailsCardView">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/primary_dark"
+                    android:text="@string/profile_header_string"
+                    android:textColor="#FFF"
+                    android:id = "@+id/basicDetailsHeader"/>
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:layout_height="match_parent"
+                    android:text="@string/club_name_string"
+                    android:id = "@+id/clubNameLabel"
+                    android:layout_below="@id/basicDetailsHeader"
+                    android:layout_alignParentLeft="true"
+                    android:layout_margin="5dp"/>
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:id = "@+id/clubNameTextView"
+                    android:text = "@string/sample_club_name_string"
+                    android:layout_alignBaseline="@id/clubNameLabel"
+                    android:layout_toEndOf="@id/clubNameLabel"
+                    android:layout_alignParentEnd="true"
+                    android:textAlignment="textEnd"
+                    android:layout_margin="5dp"/>
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:id = "@+id/dateRegisteredLabel"
+                    android:text = "@string/date_registered_string"
+                    android:layout_below="@id/clubNameLabel"
+                    android:layout_margin="5dp"
+                    android:layout_alignParentStart="true"
+                    />
+                <TextView
+                   style="@style/TextViewStyle"
+                    android:id = "@+id/dateRegisteredTextView"
+                    android:text="@string/sample_registration_date"
+                    android:layout_alignBaseline="@id/dateRegisteredLabel"
+                    android:layout_alignParentRight="true"
+                    android:layout_toRightOf="@id/dateRegisteredLabel"
+                    android:textAlignment="textEnd"
+                    android:layout_margin="5dp"/>
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:text="@string/total_personal_run_string"
+                    android:layout_below="@id/dateRegisteredLabel"
+                    android:layout_margin="5dp"
+                    android:layout_alignParentStart="true"
+                    android:id = "@+id/personalRunsLabel"/>
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:text="@string/sample_personal_run_string"
+                    android:layout_below="@id/dateRegisteredTextView"
+                    android:layout_alignBaseline="@id/personalRunsLabel"
+                    android:layout_alignParentEnd="true"
+                    android:layout_margin="5dp"
+                    android:id = "@+id/totalPersonalRunsTextView"/>
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:id = "@+id/totalEventRunsLabel"
+                    android:text="@string/total_event_run_string"
+                    android:layout_margin="5dp"
+                    android:layout_below="@id/personalRunsLabel"
+                    android:layout_alignParentStart="true"/>
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:id = "@+id/totalEventRunsTextView"
+                    android:text = "@string/sample_total_event_runs_string"
+                    android:layout_alignBaseline="@id/totalEventRunsLabel"
+                    android:layout_alignParentEnd="true"
+                    android:layout_margin="5dp"
+                    />
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:text="@string/position_in_club_string"
+                    android:layout_below="@id/totalEventRunsLabel"
+                    android:layout_margin="5dp"
+                    android:layout_alignParentStart="true"
+                    android:id = "@+id/positionInClubLabel"/>
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:text="@string/sample_position_in_club_string"
+                    android:layout_alignBaseline="@id/positionInClubLabel"
+                    android:layout_alignParentEnd="true"
+                    android:id ="@+id/positionInClubTextView"/>
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:text="@string/summarised_results_string"
+                    android:background="@color/primary_dark"
+                    android:textColor="@android:color/white"
+                    android:layout_below="@id/positionInClubLabel"
+                    android:layout_width="match_parent"
+                    android:layout_margin="5dp"
+                    android:id = "@+id/summarisedResultsHeader"/>
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:id="@+id/fastestTimeLabel"
+                    android:text="@string/fastest_time_string"
+                    android:layout_below="@id/summarisedResultsHeader"
+                    android:layout_margin="5dp"
+                    android:layout_alignParentStart="true"/>
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:text="@string/sample_finish_time"
+                    android:id = "@+id/fastestTimeText"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignBaseline="@id/fastestTimeLabel"
+                    android:layout_margin="5dp"/>
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:text="@string/average_time_string"
+                    android:id = "@+id/averageTimeLabel"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@id/fastestTimeLabel"
+                    android:layout_margin="5dp"/>
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:id = "@+id/averageTimeText"
+                    android:text = "@string/sample_average_time_string"
+                    android:layout_alignBaseline="@id/averageTimeLabel"
+                    android:layout_alignParentEnd="true"
+                    android:layout_margin="5dp"/>
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:text="@string/wava_rating_string"
+                    android:id = "@+id/wavaRatingLabel"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@id/averageTimeLabel"
+                    android:layout_margin="5dp"/>
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:id = "@+id/wavaRatingText"
+                    android:text = "@string/sample_wava_rating_string"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignBaseline="@id/wavaRatingLabel"
+                    android:layout_margin="5dp"/>
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:id = "@+id/totalPointsLabel"
+                    android:text="@string/sample_total_points_string"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@id/wavaRatingLabel"
+                    android:layout_margin="5dp"/>
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:id = "@+id/totalPointsText"
+                    android:text="@string/sample_total_points"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignBaseline="@id/totalPointsLabel"
+                    android:layout_margin="5dp"/>
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:text="@string/recommended_calorie_intake_string"
+                    android:id = "@+id/recommendedCalorieIntakeLabel"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@id/totalPointsLabel"
+                    android:layout_margin="5dp"/>
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:text="@string/sample_calories"
+                    android:layout_alignParentEnd="true"
+                    android:layout_below="@id/totalPointsText"
+                    android:layout_margin="5dp"
+                    android:layout_alignBaseline="@id/recommendedCalorieIntakeLabel"
+                    android:id = "@+id/recommendedCalorieIntakeText"/>
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:background="@color/primary_dark"
+                    android:textColor="@android:color/white"
+                    android:text="@string/my_body_string"
+                    android:layout_below="@id/recommendedCalorieIntakeLabel"
+                    android:layout_margin="5dp"
+                    android:layout_width="match_parent"
+                    android:id = "@+id/buildInformationHeader"/>
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:text="@string/height_string"
+                    android:layout_below="@id/buildInformationHeader"
+                    android:layout_alignParentStart="true"
+                    android:layout_margin="5dp"
+                    android:id = "@+id/heightLabel"/>
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:id = "@+id/heightText"
+                    android:layout_alignBaseline="@id/heightLabel"
+                    android:layout_alignParentEnd="true"
+                    android:text="@string/sample_height"
+                    android:layout_margin="5dp"/>
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:id = "@+id/weightLabel"
+                    android:text="@string/weight_string"
+                    android:layout_below="@id/heightLabel"
+                    android:layout_alignParentStart="true"
+                    android:layout_margin="5dp"/>
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:text="@string/sample_weight_String"
+                    android:layout_alignBaseline="@id/weightLabel"
+                    android:layout_alignParentEnd="true"
+                    android:layout_margin="5dp"
+                    android:id = "@+id/weightText"/>
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:id = "@+id/bmiLabel"
+                    android:text="@string/bmi_string"
+                    android:layout_below="@id/weightLabel"
+                    android:layout_alignParentStart="true"
+                    android:layout_margin="5dp"
+                    />
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:id = "@+id/bmiText"
+                    android:text="@string/sample_bmi_string"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignBaseline="@id/bmiLabel"/>
+                
+            </RelativeLayout>
+        </ScrollView>
+    </android.support.v7.widget.CardView>
+
+</RelativeLayout>
