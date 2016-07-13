@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="fill_parent"
+    android:layout_width="fill_parent"
+    android:orientation="vertical"
+    >
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id = "@+id/LoginActivityToolbar"
+        android:background="@color/primary"
+        >
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:id = "@+id/LoginActivityImageView"
+            android:layout_marginEnd="5dp"
+            android:layout_marginStart="1dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/ToolbarTextView"
+            android:id = "@+id/LoginActivityToolbarTextView"
+            android:textAlignment="center"
+            />
+    </android.support.v7.widget.Toolbar>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id = "@+id/LoginActivityContentArea">
+    </RelativeLayout>
+</LinearLayout>
+

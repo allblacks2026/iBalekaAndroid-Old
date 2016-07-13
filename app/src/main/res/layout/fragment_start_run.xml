@@ -1,0 +1,130 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="fill_parent"
+             android:layout_height="fill_parent"
+             tools:context="Fragments.StartRunFragment"
+              android:orientation="vertical"
+              android:weightSum="100"
+            >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="100"
+        android:layout_margin="5dp"
+        android:orientation="vertical"
+        >
+        <com.google.android.gms.maps.MapView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id = "@+id/startRunMapLayout"
+            android:visibility="visible"
+            ></com.google.android.gms.maps.MapView>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id = "@+id/runInformationCardView"
+            android:layout_margin="5dp"
+            >
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:layout_width="match_parent"
+                    android:id = "@+id/RunInformationHeading"
+                    android:text="@string/current_run_heading"
+                    android:textColor="@android:color/white"
+                    android:background="@color/primary"/>
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:id = "@+id/elapsedTimeLabel"
+                    android:text="@string/elapsed_time_string"
+                    android:layout_below="@id/RunInformationHeading"
+                    />
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:id = "@+id/elapsedTimeText"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignBaseline="@id/elapsedTimeLabel"
+                    android:text = "@string/sample_time_string"/>
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:text="@string/total_distance_string"
+                    android:layout_below="@id/elapsedTimeLabel"
+                    android:id = "@+id/distanceCoveredLabel"
+                    android:layout_alignParentLeft="true"/>
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:id = "@+id/distanceCoveredTextView"
+                    android:text="0.00"
+                    android:layout_below="@id/elapsedTimeText"
+                    android:layout_alignBaseline="@id/distanceCoveredLabel"
+                    android:layout_alignParentEnd="true"/>
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:id = "@+id/totalCaloriesLabel"
+                    android:text="@string/total_calories_string"
+                    android:layout_below="@id/distanceCoveredLabel"
+                    android:layout_alignParentStart="true"/>
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:id = "@+id/totalCaloriesBurntTextView"
+                    android:layout_below="@id/distanceCoveredTextView"
+                    android:layout_alignParentEnd="true"
+                    android:text=""/>
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:id = "@+id/runnerSpeedLabel"
+                    android:text="@string/runner_speed_string"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@id/totalCaloriesLabel"/>
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:id = "@+id/runnerSpeedTextView"
+                    android:layout_alignParentEnd="true"
+                    android:layout_below="@id/totalCaloriesBurntTextView"
+                    android:text=""/>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/custom_button"
+                    android:text="@string/pause_run_string"
+                    android:textColor="#FFF"
+                    android:layout_margin="5dp"
+                    android:layout_gravity="left"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@id/runnerSpeedLabel"
+                    android:id = "@+id/pauseRunButton"/>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id = "@+id/startRunButton"
+                    android:text="@string/start_run_text"
+                    android:background="@drawable/custom_button"
+                    android:textColor="@android:color/white"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignBaseline="@id/pauseRunButton"
+                    />
+                <Button
+                    android:background="@drawable/custom_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id = "@+id/endRunButton"
+                    android:text="@string/end_run_string"
+                    android:textColor="#FFF"
+                    android:layout_alignBaseline="@id/pauseRunButton"
+                    android:layout_alignParentEnd="true"
+                    android:layout_margin="5dp"
+                    />
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+    </LinearLayout>
+</LinearLayout>

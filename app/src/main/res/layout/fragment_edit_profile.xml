@@ -1,0 +1,115 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="Fragments.EditProfileFragment"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:weightSum="100"
+                android:orientation="vertical">
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/edit_profile_string"
+                    android:background="@color/primary_dark"
+                    android:textColor="@android:color/white"/>
+
+                <EditText
+                    style="@style/EditTexStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:hint="@string/edit_name_string"
+                    android:id = "@+id/EditProfileNameEditText"
+                    android:inputType="textPersonName"/>
+
+                <EditText
+                    style="@style/EditTexStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/edit_surname_string"
+                    android:id = "@+id/EditProfileSurnameEditText"
+                    android:inputType="textPersonName"/>
+
+                <EditText
+                    style="@style/EditTexStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/email_text"
+                    android:id = "@+id/EditProfileEmailEditText"
+                    android:inputType="textEmailAddress"
+                    />
+                <EditText
+                    style="@style/EditTexStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:hint="@string/edit_password_string"
+                    android:id = "@+id/EditProfilePasswordEditText"
+                    android:inputType="textPassword"/>
+
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:background="@color/primary_dark"
+                    android:text="@string/athlete_info_string"
+                    android:textColor="@color/whiteColor"
+                    android:layout_width="match_parent"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/edit_athlete_string"
+                    android:textAlignment="center"
+                    android:layout_margin="5dp"/>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id = "@+id/WeightEditText"
+                    android:hint="@string/weight_hint"
+                    android:textAlignment="center"
+                    android:inputType="numberDecimal"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id = "@+id/HeightEditText"
+                    android:hint="@string/height_hint"
+                    android:textAlignment="center"
+                    android:layout_margin="5dp"
+                    android:inputType="numberDecimal"/>
+                <EditText
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:hint="@string/license_no_hint"
+                    android:textAlignment="center"
+                    android:layout_margin="5dp"
+                    android:id = "@+id/LicenseNumberEditText"/>
+                <com.jaredrummler.materialspinner.MaterialSpinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id = "@+id/GenderSpinner"
+                    android:layout_margin="5dp"/>
+
+                <Button
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:padding="10sp"
+                    android:id = "@+id/UpdateProfileButton"
+                    android:text = "@string/update_profile_string"
+                    android:background="@drawable/custom_button"
+                    android:textColor="@color/whiteColor"
+                    android:layout_gravity="center"
+                    />
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+    </ScrollView>
+</LinearLayout>
