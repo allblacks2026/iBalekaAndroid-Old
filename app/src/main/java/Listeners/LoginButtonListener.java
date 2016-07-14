@@ -13,7 +13,21 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import AppConstants.ExecutionMode;
+<<<<<<< HEAD
 import BackgroundTasks.ForgotPasswordBackgroundTask;
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+import BackgroundTasks.ForgotPasswordBackgroundTask;
+>>>>>>> 3526f070e03d4131bb2ccb8c0d6c2d3a854e04ff
+=======
+>>>>>>> 5676b894da57e86f80ef226bff4e111040e0915a
+=======
+import BackgroundTasks.ForgotPasswordBackgroundTask;
+>>>>>>> 3526f070e03d4131bb2ccb8c0d6c2d3a854e04ff
+>>>>>>> refs/remotes/origin/master
 import BackgroundTasks.LoginBackgroundTask;
 import BackgroundTasks.UserGatewayBackgroundTask;
 import Fragments.CreateAccountStepOneFragment;
@@ -31,7 +45,21 @@ public class LoginButtonListener implements View.OnClickListener {
     private TextView toolbarTextView;
     private FragmentManager fragmentManager;
     private LoginBackgroundTask userGatewayTask;
+<<<<<<< HEAD
     private ForgotPasswordBackgroundTask forgotPasswordBackgroundTask;
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    private ForgotPasswordBackgroundTask forgotPasswordBackgroundTask;
+>>>>>>> 3526f070e03d4131bb2ccb8c0d6c2d3a854e04ff
+=======
+>>>>>>> 5676b894da57e86f80ef226bff4e111040e0915a
+=======
+    private ForgotPasswordBackgroundTask forgotPasswordBackgroundTask;
+>>>>>>> 3526f070e03d4131bb2ccb8c0d6c2d3a854e04ff
+>>>>>>> refs/remotes/origin/master
     private SharedPreferences applicationPreferences;
     private SharedPreferences.Editor editor;
 
@@ -43,7 +71,21 @@ public class LoginButtonListener implements View.OnClickListener {
         fragmentManager = currentContext.getFragmentManager();
         applicationPreferences = PreferenceManager.getDefaultSharedPreferences(currentContext);
         editor = applicationPreferences.edit();
+<<<<<<< HEAD
         forgotPasswordBackgroundTask = new ForgotPasswordBackgroundTask(currentContext);
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+        forgotPasswordBackgroundTask = new ForgotPasswordBackgroundTask(currentContext);
+>>>>>>> 3526f070e03d4131bb2ccb8c0d6c2d3a854e04ff
+=======
+>>>>>>> 5676b894da57e86f80ef226bff4e111040e0915a
+=======
+        forgotPasswordBackgroundTask = new ForgotPasswordBackgroundTask(currentContext);
+>>>>>>> 3526f070e03d4131bb2ccb8c0d6c2d3a854e04ff
+>>>>>>> refs/remotes/origin/master
     }
 
     @Override
@@ -97,10 +139,35 @@ public class LoginButtonListener implements View.OnClickListener {
                         .getText().toString(), true);
                 boolean isValidText = TextSanitizer.isValidText(enteredEmail, 10, 100);
                 if (isValidText) {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 5676b894da57e86f80ef226bff4e111040e0915a
+                    userGatewayTask.execute(enteredEmail);
+                } else {
+                    displayMessage("Invalid Email Entered", "Please enter an email address that " +
+                            "is betweeen 10 and 100 characters");
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 3526f070e03d4131bb2ccb8c0d6c2d3a854e04ff
+>>>>>>> refs/remotes/origin/master
                     forgotPasswordBackgroundTask.execute(enteredEmail);
                 } else {
                     displayMessage("Invalid Email Entered", "Please enter an email address that " +
                             "is between 10 and 100 characters");
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 3526f070e03d4131bb2ccb8c0d6c2d3a854e04ff
+=======
+>>>>>>> 5676b894da57e86f80ef226bff4e111040e0915a
+=======
+>>>>>>> 3526f070e03d4131bb2ccb8c0d6c2d3a854e04ff
+>>>>>>> refs/remotes/origin/master
                 }
                 break;
         }
