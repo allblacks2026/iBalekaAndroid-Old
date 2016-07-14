@@ -130,15 +130,21 @@ public class SearchEventsBackgroundTask extends AsyncTask<String, String, String
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 3526f070e03d4131bb2ccb8c0d6c2d3a854e04ff
     public List<Event> getEventsList()
     {
         return eventList;
     }
 
+<<<<<<< HEAD
 >>>>>>> 3526f070e03d4131bb2ccb8c0d6c2d3a854e04ff
 =======
 >>>>>>> 5676b894da57e86f80ef226bff4e111040e0915a
+=======
+>>>>>>> 3526f070e03d4131bb2ccb8c0d6c2d3a854e04ff
     public void displayMessage(String title, String message) {
         AlertDialog.Builder messageBox = new AlertDialog.Builder(currentActivity);
         messageBox.setTitle(title);
@@ -153,10 +159,15 @@ public class SearchEventsBackgroundTask extends AsyncTask<String, String, String
     }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 
 >>>>>>> 3526f070e03d4131bb2ccb8c0d6c2d3a854e04ff
 =======
 >>>>>>> 5676b894da57e86f80ef226bff4e111040e0915a
+=======
+
+
+>>>>>>> 3526f070e03d4131bb2ccb8c0d6c2d3a854e04ff
 }

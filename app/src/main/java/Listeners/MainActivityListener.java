@@ -32,6 +32,7 @@ public class MainActivityListener implements View.OnClickListener {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 5676b894da57e86f80ef226bff4e111040e0915a
     public MainActivityListener(Activity currentActivity) {
@@ -40,20 +41,26 @@ public class MainActivityListener implements View.OnClickListener {
         activityPreferences = this.currentActivity.getSharedPreferences("iBaleka_Search", Context.MODE_PRIVATE);
 <<<<<<< HEAD
 =======
+=======
+>>>>>>> 3526f070e03d4131bb2ccb8c0d6c2d3a854e04ff
 
     public MainActivityListener(Activity currentActivity) {
         this.currentActivity = currentActivity;
         mainActivityText = (TextView) currentActivity.findViewById(R.id.MainActivityTextView);
         activityPreferences = this.currentActivity.getSharedPreferences("iBaleka_DataStore", Context.MODE_PRIVATE);
+<<<<<<< HEAD
 >>>>>>> 3526f070e03d4131bb2ccb8c0d6c2d3a854e04ff
 =======
 >>>>>>> 5676b894da57e86f80ef226bff4e111040e0915a
+=======
+>>>>>>> 3526f070e03d4131bb2ccb8c0d6c2d3a854e04ff
         editor = activityPreferences.edit();
     }
 
     @Override
     public void onClick(View v) {
        switch (v.getId()) {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
            case R.id.searchEvents:
@@ -63,6 +70,9 @@ public class MainActivityListener implements View.OnClickListener {
 =======
            case R.id.searchEvents:
 >>>>>>> 5676b894da57e86f80ef226bff4e111040e0915a
+=======
+           case R.id.SearchEventsButton:
+>>>>>>> 3526f070e03d4131bb2ccb8c0d6c2d3a854e04ff
                processSearch();
                break;
            case R.id.UpdateProfileButton:
@@ -84,17 +94,23 @@ public class MainActivityListener implements View.OnClickListener {
             editor.putString("SearchCriteria", searchParam);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             editor.putBoolean("SortByDate", sortByDate);
 =======
+=======
+>>>>>>> 3526f070e03d4131bb2ccb8c0d6c2d3a854e04ff
             if (sortByDate) {
                 editor.putString("SortByDate", "True");
             } else {
                 editor.putString("SortByDate", "False");
             }
+<<<<<<< HEAD
 >>>>>>> 3526f070e03d4131bb2ccb8c0d6c2d3a854e04ff
 =======
             editor.putBoolean("SortByDate", sortByDate);
 >>>>>>> 5676b894da57e86f80ef226bff4e111040e0915a
+=======
+>>>>>>> 3526f070e03d4131bb2ccb8c0d6c2d3a854e04ff
             editor.commit();
 
             final TabLayout tabLayout = (TabLayout) currentActivity.findViewById(R.id.SearchTabLayout);
