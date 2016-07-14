@@ -31,6 +31,8 @@ public class MainActivityListener implements View.OnClickListener {
     private SharedPreferences.Editor editor;
 
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -43,17 +45,21 @@ public class MainActivityListener implements View.OnClickListener {
 =======
 =======
 >>>>>>> 3526f070e03d4131bb2ccb8c0d6c2d3a854e04ff
+>>>>>>> refs/remotes/origin/master
 
     public MainActivityListener(Activity currentActivity) {
         this.currentActivity = currentActivity;
         mainActivityText = (TextView) currentActivity.findViewById(R.id.MainActivityTextView);
         activityPreferences = this.currentActivity.getSharedPreferences("iBaleka_DataStore", Context.MODE_PRIVATE);
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 >>>>>>> 3526f070e03d4131bb2ccb8c0d6c2d3a854e04ff
 =======
 >>>>>>> 5676b894da57e86f80ef226bff4e111040e0915a
 =======
 >>>>>>> 3526f070e03d4131bb2ccb8c0d6c2d3a854e04ff
+>>>>>>> refs/remotes/origin/master
         editor = activityPreferences.edit();
     }
 
@@ -61,6 +67,9 @@ public class MainActivityListener implements View.OnClickListener {
     public void onClick(View v) {
        switch (v.getId()) {
 <<<<<<< HEAD
+           case R.id.SearchEventsButton:
+=======
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
            case R.id.searchEvents:
@@ -73,6 +82,7 @@ public class MainActivityListener implements View.OnClickListener {
 =======
            case R.id.SearchEventsButton:
 >>>>>>> 3526f070e03d4131bb2ccb8c0d6c2d3a854e04ff
+>>>>>>> refs/remotes/origin/master
                processSearch();
                break;
            case R.id.UpdateProfileButton:
@@ -93,17 +103,22 @@ public class MainActivityListener implements View.OnClickListener {
             String searchParam = TextSanitizer.sanitizeText(searchParameters, true);
             editor.putString("SearchCriteria", searchParam);
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
             editor.putBoolean("SortByDate", sortByDate);
 =======
 =======
 >>>>>>> 3526f070e03d4131bb2ccb8c0d6c2d3a854e04ff
+>>>>>>> refs/remotes/origin/master
             if (sortByDate) {
                 editor.putString("SortByDate", "True");
             } else {
                 editor.putString("SortByDate", "False");
             }
+<<<<<<< HEAD
+=======
 <<<<<<< HEAD
 >>>>>>> 3526f070e03d4131bb2ccb8c0d6c2d3a854e04ff
 =======
@@ -111,6 +126,7 @@ public class MainActivityListener implements View.OnClickListener {
 >>>>>>> 5676b894da57e86f80ef226bff4e111040e0915a
 =======
 >>>>>>> 3526f070e03d4131bb2ccb8c0d6c2d3a854e04ff
+>>>>>>> refs/remotes/origin/master
             editor.commit();
 
             final TabLayout tabLayout = (TabLayout) currentActivity.findViewById(R.id.SearchTabLayout);

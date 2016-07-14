@@ -2,6 +2,9 @@ package Fragments;
 
 
 <<<<<<< HEAD
+import android.content.SharedPreferences;
+=======
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -12,6 +15,7 @@ import android.content.SharedPreferences;
 =======
 import android.content.SharedPreferences;
 >>>>>>> 3526f070e03d4131bb2ccb8c0d6c2d3a854e04ff
+>>>>>>> refs/remotes/origin/master
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;
@@ -23,6 +27,9 @@ import allblacks.com.Activities.R;
 public class ForgotPasswordFinalStepFragment extends Fragment {
 
 <<<<<<< HEAD
+    private SharedPreferences appSharedPreferences;
+=======
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 
@@ -35,6 +42,7 @@ public class ForgotPasswordFinalStepFragment extends Fragment {
 =======
     private SharedPreferences appSharedPreferences;
 >>>>>>> 3526f070e03d4131bb2ccb8c0d6c2d3a854e04ff
+>>>>>>> refs/remotes/origin/master
     public ForgotPasswordFinalStepFragment() {
         // Required empty public constructor
     }

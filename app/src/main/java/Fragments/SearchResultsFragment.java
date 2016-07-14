@@ -2,6 +2,8 @@ package Fragments;
 
 
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -14,6 +16,7 @@ import android.app.Fragment;
 =======
 =======
 >>>>>>> 3526f070e03d4131bb2ccb8c0d6c2d3a854e04ff
+>>>>>>> refs/remotes/origin/master
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -22,11 +25,14 @@ import android.os.Bundle;
 import android.app.Fragment;
 import android.support.design.widget.TabLayout;
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 >>>>>>> 3526f070e03d4131bb2ccb8c0d6c2d3a854e04ff
 =======
 >>>>>>> 5676b894da57e86f80ef226bff4e111040e0915a
 =======
 >>>>>>> 3526f070e03d4131bb2ccb8c0d6c2d3a854e04ff
+>>>>>>> refs/remotes/origin/master
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -34,12 +40,15 @@ import android.view.View;
 import android.view.ViewGroup;
 
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 import BackgroundTasks.SearchEventsBackgroundTask;
 =======
 =======
 >>>>>>> 3526f070e03d4131bb2ccb8c0d6c2d3a854e04ff
+>>>>>>> refs/remotes/origin/master
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,12 +56,15 @@ import Adapters.SearchResultsAdapter;
 import BackgroundTasks.SearchEventsBackgroundTask;
 import Models.Event;
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 >>>>>>> 3526f070e03d4131bb2ccb8c0d6c2d3a854e04ff
 =======
 import BackgroundTasks.SearchEventsBackgroundTask;
 >>>>>>> 5676b894da57e86f80ef226bff4e111040e0915a
 =======
 >>>>>>> 3526f070e03d4131bb2ccb8c0d6c2d3a854e04ff
+>>>>>>> refs/remotes/origin/master
 import allblacks.com.Activities.R;
 
 /**
@@ -64,6 +76,11 @@ public class SearchResultsFragment extends Fragment {
     private SearchEventsBackgroundTask searchEventsBackgroundTask;
     private SharedPreferences appSharedPreferences;
 <<<<<<< HEAD
+    private SearchResultsAdapter searchAdapter;
+    private List<Event> eventsList;
+    private TabLayout searchTabLayout;
+=======
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -78,6 +95,7 @@ public class SearchResultsFragment extends Fragment {
     private List<Event> eventsList;
     private TabLayout searchTabLayout;
 >>>>>>> 3526f070e03d4131bb2ccb8c0d6c2d3a854e04ff
+>>>>>>> refs/remotes/origin/master
 
     public SearchResultsFragment() {
         // Required empty public constructor
@@ -91,6 +109,9 @@ public class SearchResultsFragment extends Fragment {
         View currentView = inflater.inflate(R.layout.fragment_search_results, container, false);
         initializeComponents(currentView);
 <<<<<<< HEAD
+        startSearch();
+=======
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -101,10 +122,13 @@ public class SearchResultsFragment extends Fragment {
 =======
         startSearch();
 >>>>>>> 3526f070e03d4131bb2ccb8c0d6c2d3a854e04ff
+>>>>>>> refs/remotes/origin/master
         return currentView;
     }
 
     private void initializeComponents(View thisView) {
+<<<<<<< HEAD
+=======
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -120,6 +144,7 @@ public class SearchResultsFragment extends Fragment {
 =======
 =======
 >>>>>>> 3526f070e03d4131bb2ccb8c0d6c2d3a854e04ff
+>>>>>>> refs/remotes/origin/master
         eventsList = new ArrayList<>();
         searchResultsRecyclerView = (RecyclerView) thisView.findViewById(R.id
                 .EventSearchResultsRecyclerView);
@@ -156,11 +181,14 @@ public class SearchResultsFragment extends Fragment {
         });
         dialogMessage.show();
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 >>>>>>> 3526f070e03d4131bb2ccb8c0d6c2d3a854e04ff
 =======
 >>>>>>> 5676b894da57e86f80ef226bff4e111040e0915a
 =======
 >>>>>>> 3526f070e03d4131bb2ccb8c0d6c2d3a854e04ff
+>>>>>>> refs/remotes/origin/master
     }
 
 }
