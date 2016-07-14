@@ -23,9 +23,12 @@ public class SearchResultsAdapter extends RecyclerView.Adapter<SearchResultsAdap
     private LayoutInflater inflater;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 3526f070e03d4131bb2ccb8c0d6c2d3a854e04ff
+=======
+>>>>>>> 5676b894da57e86f80ef226bff4e111040e0915a
     public SearchResultsAdapter(Activity currentActivity) {
         this.currentActivity = currentActivity;
         inflater = LayoutInflater.from(currentActivity);
@@ -75,10 +78,13 @@ public class SearchResultsAdapter extends RecyclerView.Adapter<SearchResultsAdap
       }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 
 >>>>>>> 3526f070e03d4131bb2ccb8c0d6c2d3a854e04ff
+=======
+>>>>>>> 5676b894da57e86f80ef226bff4e111040e0915a
   }
 
 }
