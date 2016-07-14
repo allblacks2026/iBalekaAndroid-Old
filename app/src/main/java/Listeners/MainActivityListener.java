@@ -30,17 +30,18 @@ public class MainActivityListener implements View.OnClickListener {
     private SharedPreferences activityPreferences;
     private SharedPreferences.Editor editor;
 
+
     public MainActivityListener(Activity currentActivity) {
         this.currentActivity = currentActivity;
         mainActivityText = (TextView) currentActivity.findViewById(R.id.MainActivityTextView);
-        activityPreferences = this.currentActivity.getSharedPreferences("iBaleka_Search", Context.MODE_PRIVATE);
+        activityPreferences = this.currentActivity.getSharedPreferences("iBaleka_DataStore", Context.MODE_PRIVATE);
         editor = activityPreferences.edit();
     }
 
     @Override
     public void onClick(View v) {
        switch (v.getId()) {
-           case R.id.searchEvents:
+           case R.id.SearchEventsButton:
                processSearch();
                break;
            case R.id.UpdateProfileButton:
@@ -60,7 +61,11 @@ public class MainActivityListener implements View.OnClickListener {
 
             String searchParam = TextSanitizer.sanitizeText(searchParameters, true);
             editor.putString("SearchCriteria", searchParam);
-            editor.putBoolean("SortByDate", sortByDate);
+            if (sortByDate) {
+                editor.putString("SortByDate", "True");
+            } else {
+                editor.putString("SortByDate", "False");
+            }
             editor.commit();
 
             final TabLayout tabLayout = (TabLayout) currentActivity.findViewById(R.id.SearchTabLayout);

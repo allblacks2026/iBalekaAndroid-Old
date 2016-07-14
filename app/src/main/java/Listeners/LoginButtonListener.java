@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import AppConstants.ExecutionMode;
+import BackgroundTasks.ForgotPasswordBackgroundTask;
 import BackgroundTasks.LoginBackgroundTask;
 import BackgroundTasks.UserGatewayBackgroundTask;
 import Fragments.CreateAccountStepOneFragment;
@@ -30,6 +31,7 @@ public class LoginButtonListener implements View.OnClickListener {
     private TextView toolbarTextView;
     private FragmentManager fragmentManager;
     private LoginBackgroundTask userGatewayTask;
+    private ForgotPasswordBackgroundTask forgotPasswordBackgroundTask;
     private SharedPreferences applicationPreferences;
     private SharedPreferences.Editor editor;
 
@@ -41,6 +43,7 @@ public class LoginButtonListener implements View.OnClickListener {
         fragmentManager = currentContext.getFragmentManager();
         applicationPreferences = PreferenceManager.getDefaultSharedPreferences(currentContext);
         editor = applicationPreferences.edit();
+        forgotPasswordBackgroundTask = new ForgotPasswordBackgroundTask(currentContext);
     }
 
     @Override
@@ -94,10 +97,10 @@ public class LoginButtonListener implements View.OnClickListener {
                         .getText().toString(), true);
                 boolean isValidText = TextSanitizer.isValidText(enteredEmail, 10, 100);
                 if (isValidText) {
-                    userGatewayTask.execute(enteredEmail);
+                    forgotPasswordBackgroundTask.execute(enteredEmail);
                 } else {
                     displayMessage("Invalid Email Entered", "Please enter an email address that " +
-                            "is betweeen 10 and 100 characters");
+                            "is between 10 and 100 characters");
                 }
                 break;
         }

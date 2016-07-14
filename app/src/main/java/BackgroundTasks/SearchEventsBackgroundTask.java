@@ -128,6 +128,11 @@ public class SearchEventsBackgroundTask extends AsyncTask<String, String, String
         }
     }
 
+    public List<Event> getEventsList()
+    {
+        return eventList;
+    }
+
     public void displayMessage(String title, String message) {
         AlertDialog.Builder messageBox = new AlertDialog.Builder(currentActivity);
         messageBox.setTitle(title);
@@ -140,4 +145,6 @@ public class SearchEventsBackgroundTask extends AsyncTask<String, String, String
         });
         messageBox.show();
     }
+
+
 }

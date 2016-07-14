@@ -22,6 +22,7 @@ public class SearchResultsAdapter extends RecyclerView.Adapter<SearchResultsAdap
     private Activity currentActivity;
     private LayoutInflater inflater;
 
+
     public SearchResultsAdapter(Activity currentActivity) {
         this.currentActivity = currentActivity;
         inflater = LayoutInflater.from(currentActivity);
@@ -69,6 +70,8 @@ public class SearchResultsAdapter extends RecyclerView.Adapter<SearchResultsAdap
           eventTimeTextView = (TextView) itemView.findViewById(R.id.EventSearchTimeTextView);
           locationTextView = (TextView) itemView.findViewById(R.id.EventSearchLocationTextView);
       }
+
+
 
   }
 
