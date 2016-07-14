@@ -30,17 +30,29 @@ public class MainActivityListener implements View.OnClickListener {
     private SharedPreferences activityPreferences;
     private SharedPreferences.Editor editor;
 
+<<<<<<< HEAD
     public MainActivityListener(Activity currentActivity) {
         this.currentActivity = currentActivity;
         mainActivityText = (TextView) currentActivity.findViewById(R.id.MainActivityTextView);
         activityPreferences = this.currentActivity.getSharedPreferences("iBaleka_Search", Context.MODE_PRIVATE);
+=======
+
+    public MainActivityListener(Activity currentActivity) {
+        this.currentActivity = currentActivity;
+        mainActivityText = (TextView) currentActivity.findViewById(R.id.MainActivityTextView);
+        activityPreferences = this.currentActivity.getSharedPreferences("iBaleka_DataStore", Context.MODE_PRIVATE);
+>>>>>>> 3526f070e03d4131bb2ccb8c0d6c2d3a854e04ff
         editor = activityPreferences.edit();
     }
 
     @Override
     public void onClick(View v) {
        switch (v.getId()) {
+<<<<<<< HEAD
            case R.id.searchEvents:
+=======
+           case R.id.SearchEventsButton:
+>>>>>>> 3526f070e03d4131bb2ccb8c0d6c2d3a854e04ff
                processSearch();
                break;
            case R.id.UpdateProfileButton:
@@ -60,7 +72,15 @@ public class MainActivityListener implements View.OnClickListener {
 
             String searchParam = TextSanitizer.sanitizeText(searchParameters, true);
             editor.putString("SearchCriteria", searchParam);
+<<<<<<< HEAD
             editor.putBoolean("SortByDate", sortByDate);
+=======
+            if (sortByDate) {
+                editor.putString("SortByDate", "True");
+            } else {
+                editor.putString("SortByDate", "False");
+            }
+>>>>>>> 3526f070e03d4131bb2ccb8c0d6c2d3a854e04ff
             editor.commit();
 
             final TabLayout tabLayout = (TabLayout) currentActivity.findViewById(R.id.SearchTabLayout);
