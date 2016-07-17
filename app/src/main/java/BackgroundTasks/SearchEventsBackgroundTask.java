@@ -6,6 +6,7 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
+import android.support.v7.widget.RecyclerView;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -22,7 +23,9 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
+import Adapters.SearchResultsAdapter;
 import Models.Event;
+import allblacks.com.Activities.R;
 
 /**
  * Created by Okuhle on 7/12/2016.
@@ -34,10 +37,15 @@ public class SearchEventsBackgroundTask extends AsyncTask<String, String, String
     private ProgressDialog progressDialog;
     private String baseUrl = "http://154.127.61.157/ibaleka/";
     private List<Event> eventList;
+    private RecyclerView searchRecyclerView;
+    private SearchResultsAdapter searchAdapter;
+    private String searchLocation, telephoneNumber, website;
 
     public SearchEventsBackgroundTask(Activity currentActivity) {
         this.currentActivity = currentActivity;
         eventList = new ArrayList<>();
+        searchRecyclerView = (RecyclerView) currentActivity.findViewById(R.id.EventSearchResultsRecyclerView);
+        searchAdapter = new SearchResultsAdapter(currentActivity);
     }
 
     @Override
@@ -51,12 +59,12 @@ public class SearchEventsBackgroundTask extends AsyncTask<String, String, String
     @Override
     protected String doInBackground(String... params) {
 
-        String execScript = "search_events.php";
+        String execScript = baseUrl + "search_events.php";
         String line = "";
         String response = "";
 
-        String searchParam = params[0];
-        String sortByDate = params[1];
+        searchLocation = params[0];
+        telephoneNumber = params[1];
         try {
 
             URL forgotPasswordLink = new URL(execScript);
@@ -67,7 +75,7 @@ public class SearchEventsBackgroundTask extends AsyncTask<String, String, String
             forgetPasswordConnection.setDoInput(true);
 
             String forgotPasswordString = URLEncoder.encode("SearchCriteria", "utf-8")
-                    +"="+URLEncoder.encode(searchParam, "utf-8")+"&"+URLEncoder.encode("SortByDate", "utf-8")+"="+URLEncoder.encode(sortByDate, "utf-8");
+                    +"="+URLEncoder.encode(searchLocation, "utf-8")+"&"+URLEncoder.encode("SortByDate", "utf-8")+"="+URLEncoder.encode(telephoneNumber, "utf-8");
             OutputStream toServerStream = forgetPasswordConnection.getOutputStream();
             BufferedWriter toServerWriter = new BufferedWriter(new OutputStreamWriter
                     (toServerStream, "UTF-8"));
@@ -110,13 +118,18 @@ public class SearchEventsBackgroundTask extends AsyncTask<String, String, String
                 } else {
                     JSONArray array = new JSONArray(s);
                     for (int a = 0; a < array.length(); a++) {
-                        JSONObject currentResult = array.getJSONObject(0);
+                        JSONObject currentResult = array.getJSONObject(a);
                         Event newEvent = new Event(currentResult.getString("EventID"), currentResult.getString("Description"), currentResult.getString("Date"), currentResult.getString("Time"), currentResult.getString("Location"));
                         eventList.add(newEvent);
                     }
+
+                    if (eventList.size() != 0) {
+                        searchAdapter.setEventsList(eventList);
+                        searchRecyclerView.setAdapter(searchAdapter);
+                    }
                 }
             }else {
-                displayMessage("No Results Found", "No results were found. Try searching again with different parameters");
+                displayMessage("No Results Found", "Your search criteria "+searchLocation +" did not return any results. Please try again.");
             }
         } catch (final Exception error) {
             currentActivity.runOnUiThread(new Runnable() {

@@ -18,6 +18,7 @@ import BackgroundTasks.LoginBackgroundTask;
 import BackgroundTasks.UserGatewayBackgroundTask;
 import Fragments.CreateAccountStepOneFragment;
 import Fragments.ForgotPasswordFragment;
+import Utilities.DeviceHardwareChecker;
 import Utilities.TextSanitizer;
 import allblacks.com.Activities.MainActivity;
 import allblacks.com.Activities.R;
@@ -50,24 +51,31 @@ public class LoginButtonListener implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.loginButton:
-                TextView usernameEditText = (TextView) currentContext.findViewById(R.id.usernameEditText);
-                TextView passwordEditText = (TextView) currentContext.findViewById(R.id.passwordEditText);
+                DeviceHardwareChecker checker = new DeviceHardwareChecker(currentContext);
+                checker.checkNetworkConnection();
+                if (checker.isConnectedToInternet()) {
 
-                if (usernameEditText.getText().toString() != null && passwordEditText.getText().toString() != null) {
-                    String userName = TextSanitizer.sanitizeText(usernameEditText.getText().toString().trim(), false);
-                    String password = TextSanitizer.sanitizeText(passwordEditText.getText().toString().trim(), false);
+                    TextView usernameEditText = (TextView) currentContext.findViewById(R.id.usernameEditText);
+                    TextView passwordEditText = (TextView) currentContext.findViewById(R.id.passwordEditText);
 
-                    boolean isValidUsername = TextSanitizer.isValidText(userName, 1, 100);
-                    boolean isValidPassword = TextSanitizer.isValidText(password, 1, 100);
+                    if (usernameEditText.getText().toString() != null && passwordEditText.getText().toString() != null) {
+                        String userName = TextSanitizer.sanitizeText(usernameEditText.getText().toString().trim(), false);
+                        String password = TextSanitizer.sanitizeText(passwordEditText.getText().toString().trim(), false);
 
-                    if (isValidUsername && isValidPassword) {
-                        userGatewayTask = new LoginBackgroundTask(currentContext);
-                        userGatewayTask.execute(userName, password);
+                        boolean isValidUsername = TextSanitizer.isValidText(userName, 1, 100);
+                        boolean isValidPassword = TextSanitizer.isValidText(password, 1, 100);
+
+                        if (isValidUsername && isValidPassword) {
+                            userGatewayTask = new LoginBackgroundTask(currentContext);
+                            userGatewayTask.execute(userName, password);
+                        } else {
+                            displayMessage("Login Error", "Please ensure your username and password is between 1 and 100 characters");
+                        }
                     } else {
-                        displayMessage("Login Error", "Please ensure your username and password is between 1 and 100 characters");
+                        displayMessage("Login Error", "Please Enter a valid Username and Password");
                     }
                 } else {
-                    displayMessage("Login Error", "Please Enter a valid Username and Password");
+                    displayMessage("Check Internet Connection", "You are not connected to the internet. Please check your internet connection");
                 }
 
                 break;
@@ -91,16 +99,22 @@ public class LoginButtonListener implements View.OnClickListener {
                 forgotPasswordTransaction.commit();
                 break;
             case R.id.ForgotPasswordNextStepButton:
-                forgotPasswordEmailEditText = (EditText) currentContext.findViewById(R.id
-                        .ForgotPasswordEmailEditText);
-                String enteredEmail = TextSanitizer.sanitizeText(forgotPasswordEmailEditText
-                        .getText().toString(), true);
-                boolean isValidText = TextSanitizer.isValidText(enteredEmail, 10, 100);
-                if (isValidText) {
-                    forgotPasswordBackgroundTask.execute(enteredEmail);
+                DeviceHardwareChecker checkInternet = new DeviceHardwareChecker(currentContext);
+                checkInternet.checkNetworkConnection();
+                if (checkInternet.isConnectedToInternet()) {
+                    forgotPasswordEmailEditText = (EditText) currentContext.findViewById(R.id
+                            .ForgotPasswordEmailEditText);
+                    String enteredEmail = TextSanitizer.sanitizeText(forgotPasswordEmailEditText
+                            .getText().toString(), true);
+                    boolean isValidText = TextSanitizer.isValidText(enteredEmail, 10, 100);
+                    if (isValidText) {
+                        forgotPasswordBackgroundTask.execute(enteredEmail);
+                    } else {
+                        displayMessage("Invalid Email Entered", "Please enter an email address that " +
+                                "is between 10 and 100 characters");
+                    }
                 } else {
-                    displayMessage("Invalid Email Entered", "Please enter an email address that " +
-                            "is between 10 and 100 characters");
+                    displayMessage("Check Your Internet Connection", "You are not connected to the internet. Please check your internet connection");
                 }
                 break;
         }

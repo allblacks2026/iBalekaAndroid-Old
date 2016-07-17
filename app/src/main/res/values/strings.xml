@@ -151,6 +151,7 @@
     <string name="forgot_password_answer">Your Answer</string>
     <string name="reset_password_string">Reset My Password</string>
     <string name="new_password_hint">Your New Password</string>
+    <string name="security_title">Your Basic Security Information</string>
     <string-array name="countries_list">
         <item>Afghanistan</item>
         <item>Albania</item>

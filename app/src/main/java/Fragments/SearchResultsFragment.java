@@ -26,7 +26,6 @@ import allblacks.com.Activities.R;
  * A simple {@link Fragment} subclass.
  */
 public class SearchResultsFragment extends Fragment {
-
     private RecyclerView searchResultsRecyclerView;
     private SearchEventsBackgroundTask searchEventsBackgroundTask;
     private SharedPreferences appSharedPreferences;
@@ -45,17 +44,11 @@ public class SearchResultsFragment extends Fragment {
         // Inflate the layout for this fragment
         View currentView = inflater.inflate(R.layout.fragment_search_results, container, false);
         initializeComponents(currentView);
-        startSearch();
         return currentView;
     }
 
     private void initializeComponents(View thisView) {
-        eventsList = new ArrayList<>();
-        searchResultsRecyclerView = (RecyclerView) thisView.findViewById(R.id
-                .EventSearchResultsRecyclerView);
-        searchResultsRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        searchTabLayout = (TabLayout) thisView.findViewById(R.id.SearchTabLayout);
-        appSharedPreferences = getActivity().getSharedPreferences("iBaleka_DataStore", Context.MODE_PRIVATE);
+
 
 
     }
