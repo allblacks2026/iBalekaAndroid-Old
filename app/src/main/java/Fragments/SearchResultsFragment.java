@@ -71,7 +71,6 @@ import allblacks.com.Activities.R;
  * A simple {@link Fragment} subclass.
  */
 public class SearchResultsFragment extends Fragment {
-
     private RecyclerView searchResultsRecyclerView;
     private SearchEventsBackgroundTask searchEventsBackgroundTask;
     private SharedPreferences appSharedPreferences;
@@ -109,6 +108,7 @@ public class SearchResultsFragment extends Fragment {
         View currentView = inflater.inflate(R.layout.fragment_search_results, container, false);
         initializeComponents(currentView);
 <<<<<<< HEAD
+<<<<<<< HEAD
         startSearch();
 =======
 <<<<<<< HEAD
@@ -123,10 +123,13 @@ public class SearchResultsFragment extends Fragment {
         startSearch();
 >>>>>>> 3526f070e03d4131bb2ccb8c0d6c2d3a854e04ff
 >>>>>>> refs/remotes/origin/master
+=======
+>>>>>>> c3f192701e94f9e8ccecad0adacf676d1a55cce2
         return currentView;
     }
 
     private void initializeComponents(View thisView) {
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
@@ -151,6 +154,9 @@ public class SearchResultsFragment extends Fragment {
         searchResultsRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         searchTabLayout = (TabLayout) thisView.findViewById(R.id.SearchTabLayout);
         appSharedPreferences = getActivity().getSharedPreferences("iBaleka_DataStore", Context.MODE_PRIVATE);
+=======
+
+>>>>>>> c3f192701e94f9e8ccecad0adacf676d1a55cce2
 
 
     }

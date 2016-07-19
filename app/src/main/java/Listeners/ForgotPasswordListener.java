@@ -11,6 +11,7 @@ import android.widget.EditText;
 
 import BackgroundTasks.ForgotPasswordBackgroundTask;
 import BackgroundTasks.ResetPasswordBackgroundTask;
+import Utilities.DeviceHardwareChecker;
 import Utilities.TextSanitizer;
 import allblacks.com.Activities.R;
 
@@ -31,33 +32,40 @@ public class ForgotPasswordListener implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.RetrievePasswordButton:
-                EditText securityAnswerEditText = (EditText) currentActivity.findViewById(R.id.ForgotPasswordSecurityAnswerEditText);
-                EditText newPasswordEditText = (EditText) currentActivity.findViewById(R.id.ForgotPasswordNewPasswordEditText);
-                EditText confirmPasswordEditText = (EditText) currentActivity.findViewById(R.id.ForgotPasswordConfirmNewPasswordEditText);
+                DeviceHardwareChecker checker = new DeviceHardwareChecker(currentActivity);
+                checker.checkNetworkConnection();
+                if (checker.isConnectedToInternet()) {
 
-                String answer = securityAnswerEditText.getText().toString();
-                String newPassword = newPasswordEditText.getText().toString();
-                String confirmPassword = confirmPasswordEditText.getText().toString();
+                    EditText securityAnswerEditText = (EditText) currentActivity.findViewById(R.id.ForgotPasswordSecurityAnswerEditText);
+                    EditText newPasswordEditText = (EditText) currentActivity.findViewById(R.id.ForgotPasswordNewPasswordEditText);
+                    EditText confirmPasswordEditText = (EditText) currentActivity.findViewById(R.id.ForgotPasswordConfirmNewPasswordEditText);
 
-                answer = TextSanitizer.sanitizeText(answer, true);
-                newPassword = TextSanitizer.sanitizeText(newPassword, false);
-                confirmPassword = TextSanitizer.sanitizeText(confirmPassword, false);
+                    String answer = securityAnswerEditText.getText().toString();
+                    String newPassword = newPasswordEditText.getText().toString();
+                    String confirmPassword = confirmPasswordEditText.getText().toString();
 
-                boolean isValid [] = new boolean[4];
-                isValid[0] = TextSanitizer.isValidText(answer, 2, 100);
-                isValid[1] = TextSanitizer.isValidText(newPassword, 2, 100);
-                isValid[2] = TextSanitizer.isValidText(confirmPassword, 2, 100);
-                boolean isSame = TextSanitizer.isSameText(newPassword, confirmPassword);
-                if (isValid[0] && isValid[1] && isValid[2] && isSame) {
-                    ResetPasswordBackgroundTask backgroundTask = new ResetPasswordBackgroundTask(currentActivity);
-                    backgroundTask.execute(appSharedPreferences.getString("EmailAddress", ""), answer, newPassword);
+                    answer = TextSanitizer.sanitizeText(answer, true);
+                    newPassword = TextSanitizer.sanitizeText(newPassword, false);
+                    confirmPassword = TextSanitizer.sanitizeText(confirmPassword, false);
 
-                } else {
-                    if (!isSame) {
-                        displayMessage("Error in New Password", "The entered passwords do not match");
+                    boolean isValid[] = new boolean[4];
+                    isValid[0] = TextSanitizer.isValidText(answer, 2, 100);
+                    isValid[1] = TextSanitizer.isValidText(newPassword, 2, 100);
+                    isValid[2] = TextSanitizer.isValidText(confirmPassword, 2, 100);
+                    boolean isSame = TextSanitizer.isSameText(newPassword, confirmPassword);
+                    if (isValid[0] && isValid[1] && isValid[2] && isSame) {
+                        ResetPasswordBackgroundTask backgroundTask = new ResetPasswordBackgroundTask(currentActivity);
+                        backgroundTask.execute(appSharedPreferences.getString("EmailAddress", ""), answer, newPassword);
+
                     } else {
-                        displayMessage("Error Sending Change Request", "Please ensure you have filled all fields with valid data");
+                        if (!isSame) {
+                            displayMessage("Error in New Password", "The entered passwords do not match");
+                        } else {
+                            displayMessage("Error Sending Change Request", "Please ensure you have filled all fields with valid data");
+                        }
                     }
+                } else {
+                    displayMessage("Check Your Internet Connection", "You are not connected to the internet. Please check your internet connection");
                 }
 
 
