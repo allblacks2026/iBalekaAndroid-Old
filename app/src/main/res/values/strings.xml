@@ -161,6 +161,7 @@
     <string name="reset_password_string">Reset My Password</string>
     <string name="new_password_hint">Your New Password</string>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> 3526f070e03d4131bb2ccb8c0d6c2d3a854e04ff
@@ -169,6 +170,9 @@
 =======
 >>>>>>> 3526f070e03d4131bb2ccb8c0d6c2d3a854e04ff
 >>>>>>> refs/remotes/origin/master
+=======
+    <string name="security_title">Your Basic Security Information</string>
+>>>>>>> c3f192701e94f9e8ccecad0adacf676d1a55cce2
     <string-array name="countries_list">
         <item>Afghanistan</item>
         <item>Albania</item>
