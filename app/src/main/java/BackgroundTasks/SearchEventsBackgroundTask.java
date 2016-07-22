@@ -6,7 +6,6 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
-import android.support.v7.widget.RecyclerView;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -23,9 +22,7 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
-import Adapters.SearchResultsAdapter;
 import Models.Event;
-import allblacks.com.Activities.R;
 
 /**
  * Created by Okuhle on 7/12/2016.
@@ -37,15 +34,10 @@ public class SearchEventsBackgroundTask extends AsyncTask<String, String, String
     private ProgressDialog progressDialog;
     private String baseUrl = "http://154.127.61.157/ibaleka/";
     private List<Event> eventList;
-    private RecyclerView searchRecyclerView;
-    private SearchResultsAdapter searchAdapter;
-    private String searchLocation, telephoneNumber, website;
 
     public SearchEventsBackgroundTask(Activity currentActivity) {
         this.currentActivity = currentActivity;
         eventList = new ArrayList<>();
-        searchRecyclerView = (RecyclerView) currentActivity.findViewById(R.id.EventSearchResultsRecyclerView);
-        searchAdapter = new SearchResultsAdapter(currentActivity);
     }
 
     @Override
@@ -59,12 +51,12 @@ public class SearchEventsBackgroundTask extends AsyncTask<String, String, String
     @Override
     protected String doInBackground(String... params) {
 
-        String execScript = baseUrl + "search_events.php";
+        String execScript = "search_events.php";
         String line = "";
         String response = "";
 
-        searchLocation = params[0];
-        telephoneNumber = params[1];
+        String searchParam = params[0];
+        String sortByDate = params[1];
         try {
 
             URL forgotPasswordLink = new URL(execScript);
@@ -75,7 +67,7 @@ public class SearchEventsBackgroundTask extends AsyncTask<String, String, String
             forgetPasswordConnection.setDoInput(true);
 
             String forgotPasswordString = URLEncoder.encode("SearchCriteria", "utf-8")
-                    +"="+URLEncoder.encode(searchLocation, "utf-8")+"&"+URLEncoder.encode("SortByDate", "utf-8")+"="+URLEncoder.encode(telephoneNumber, "utf-8");
+                    +"="+URLEncoder.encode(searchParam, "utf-8")+"&"+URLEncoder.encode("SortByDate", "utf-8")+"="+URLEncoder.encode(sortByDate, "utf-8");
             OutputStream toServerStream = forgetPasswordConnection.getOutputStream();
             BufferedWriter toServerWriter = new BufferedWriter(new OutputStreamWriter
                     (toServerStream, "UTF-8"));
@@ -118,18 +110,13 @@ public class SearchEventsBackgroundTask extends AsyncTask<String, String, String
                 } else {
                     JSONArray array = new JSONArray(s);
                     for (int a = 0; a < array.length(); a++) {
-                        JSONObject currentResult = array.getJSONObject(a);
+                        JSONObject currentResult = array.getJSONObject(0);
                         Event newEvent = new Event(currentResult.getString("EventID"), currentResult.getString("Description"), currentResult.getString("Date"), currentResult.getString("Time"), currentResult.getString("Location"));
                         eventList.add(newEvent);
                     }
-
-                    if (eventList.size() != 0) {
-                        searchAdapter.setEventsList(eventList);
-                        searchRecyclerView.setAdapter(searchAdapter);
-                    }
                 }
             }else {
-                displayMessage("No Results Found", "Your search criteria "+searchLocation +" did not return any results. Please try again.");
+                displayMessage("No Results Found", "No results were found. Try searching again with different parameters");
             }
         } catch (final Exception error) {
             currentActivity.runOnUiThread(new Runnable() {
@@ -141,29 +128,6 @@ public class SearchEventsBackgroundTask extends AsyncTask<String, String, String
         }
     }
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 3526f070e03d4131bb2ccb8c0d6c2d3a854e04ff
->>>>>>> refs/remotes/origin/master
-    public List<Event> getEventsList()
-    {
-        return eventList;
-    }
-
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 3526f070e03d4131bb2ccb8c0d6c2d3a854e04ff
-=======
->>>>>>> 5676b894da57e86f80ef226bff4e111040e0915a
-=======
->>>>>>> 3526f070e03d4131bb2ccb8c0d6c2d3a854e04ff
->>>>>>> refs/remotes/origin/master
     public void displayMessage(String title, String message) {
         AlertDialog.Builder messageBox = new AlertDialog.Builder(currentActivity);
         messageBox.setTitle(title);
@@ -176,22 +140,4 @@ public class SearchEventsBackgroundTask extends AsyncTask<String, String, String
         });
         messageBox.show();
     }
-<<<<<<< HEAD
-
-
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 3526f070e03d4131bb2ccb8c0d6c2d3a854e04ff
-=======
->>>>>>> 5676b894da57e86f80ef226bff4e111040e0915a
-=======
-
-
->>>>>>> 3526f070e03d4131bb2ccb8c0d6c2d3a854e04ff
->>>>>>> refs/remotes/origin/master
 }

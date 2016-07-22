@@ -61,30 +61,6 @@
                 <TextView
                     style="@style/TextViewStyle"
                     android:background="@color/primary_dark"
-                    android:text="@string/security_title"
-                    android:textColor="@color/whiteColor"
-                    android:layout_width="match_parent"
-                    />
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:maxLines="1"
-                    android:layout_margin="5dp"
-                    android:hint="Your Security Question"
-                    android:id = "@+id/EditProfileSecurityQuestionEditText"
-                    android:textAlignment="center"/>
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:maxLines="1"
-                    android:layout_margin="5dp"
-                    android:hint="Your Security Answer"
-                    android:id = "@+id/EditProfileSecurityAnswerEditText"
-                    android:textAlignment="center"/>
-
-                <TextView
-                    style="@style/TextViewStyle"
-                    android:background="@color/primary_dark"
                     android:text="@string/athlete_info_string"
                     android:textColor="@color/whiteColor"
                     android:layout_width="match_parent"/>

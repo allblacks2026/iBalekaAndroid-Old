@@ -13,7 +13,6 @@ import Fragments.AthleteLandingFragment;
 import Fragments.ProfileFragment;
 import Fragments.SearchFragment;
 import Fragments.StartRunFragment;
-import Fragments.StartSearchFragment;
 import allblacks.com.Activities.R;
 
 /**
@@ -77,12 +76,12 @@ public class NavigationMenuOnItemSelectedListener implements NavigationView.OnNa
             case R.id.searchEvents:
                 navigationView.getMenu().clear();
                 navigationView.inflateMenu(R.menu.athlete_navigation_menu);
-                StartSearchFragment searchFragment = new StartSearchFragment();
+                SearchFragment searchFragment = new SearchFragment();
                 FragmentTransaction searchFragmentTransaction = mgr.beginTransaction();
                 searchFragmentTransaction.replace(R.id.MainActivityContentArea, searchFragment,
                         "SearchFragment");
                 searchFragmentTransaction.addToBackStack("SearchFragment");
-                toolbarTextView.setText("Search For Events");
+                toolbarTextView.setText("Search Events");
                 drawerLayout.closeDrawers();
                 searchFragmentTransaction.commit();
                 break;

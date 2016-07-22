@@ -27,7 +27,6 @@ import BackgroundTasks.UserGatewayBackgroundTask;
 import Fragments.CreateAccountStepTwoFragment;
 import Models.User;
 import Models.UserCredential;
-import Utilities.DeviceHardwareChecker;
 import Utilities.TextSanitizer;
 import allblacks.com.Activities.R;
 
@@ -43,7 +42,6 @@ public class RegistrationButtonListener implements View.OnClickListener {
     private int selectedDay = 0, selectedMonth = 0, selectedYear = 0;
     private TextView selectedDOB;
     private String [] countryList;
-    private TextView toolbarTextView;
 
     public RegistrationButtonListener(Activity currentActivity) {
         this.currentActivity = currentActivity;
@@ -51,7 +49,6 @@ public class RegistrationButtonListener implements View.OnClickListener {
         editor = appSharedPreferences.edit();
         countryList = currentActivity.getResources().getStringArray(R.array.countries_list);
         globalPreferences = PreferenceManager.getDefaultSharedPreferences(currentActivity);
-        toolbarTextView = (TextView) currentActivity.findViewById(R.id.LoginActivityToolbarTextView);
 
     }
 
@@ -59,22 +56,20 @@ public class RegistrationButtonListener implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.SelectDateOfBirthButton:
-                selectedDOB = (TextView) currentActivity.findViewById(R.id.SelectedDateOfBirthLabel);
+            selectedDOB = (TextView) currentActivity.findViewById(R.id.SelectedDateOfBirthLabel);
                 DatePickerDialog dateDialog = new DatePickerDialog(currentActivity, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                         selectedDay = dayOfMonth;
                         selectedMonth = monthOfYear + 1;
                         selectedYear = year;
-                        selectedDOB.setText(selectedYear + "-" + selectedMonth + "-" + selectedDay);
+                        selectedDOB.setText(selectedYear+"-"+selectedMonth+"-"+selectedDay);
 
-                        editor.putString("DateOfBirth", selectedYear + "-" + selectedMonth + "-" + selectedDay);
-                    }
-                }, 2015, 10, 10);
-                dateDialog.show();
+                        editor.putString("DateOfBirth", selectedYear+"-"+selectedMonth+"-"+selectedDay);
+                    }}, 2015, 10, 10);
+             dateDialog.show();
                 break;
             case R.id.NextStepButton:
-                toolbarTextView.setText("Create Account: Step 2 of 2");
                 TextView enteredName = (TextView) currentActivity.findViewById(R.id.NameEditText);
                 TextView enteredSurname = (TextView) currentActivity.findViewById(R.id.SurnameEditText);
                 TextView enteredEmail = (TextView) currentActivity.findViewById(R.id.EmailEditText);
@@ -124,45 +119,40 @@ public class RegistrationButtonListener implements View.OnClickListener {
                 } else {
                     displayMessage("Please Enter Text", "Please note that all fields are required");
                 }
-                break;
+            break;
             case R.id.CreateAccountButton:
-                DeviceHardwareChecker checker = new DeviceHardwareChecker(currentActivity);
-                checker.checkNetworkConnection();
-                if (checker.isConnectedToInternet()) {
-                    EditText usernameEditText = (EditText) currentActivity.findViewById(R.id.UsernameEditText);
-                    EditText passwordEditText = (EditText) currentActivity.findViewById(R.id.PasswordEditText);
-                    EditText securityQuestionEditText = (EditText) currentActivity.findViewById(R.id.SecurityQuestionEditText);
-                    EditText securityAnswerEditText = (EditText) currentActivity.findViewById(R.id.SecurityAnswerEditText);
 
-                    if (usernameEditText.getText().toString() != null && passwordEditText.getText().toString() != null && securityQuestionEditText.getText().toString() != null && securityAnswerEditText.getText().toString() != null && selectedDay == 0 && selectedMonth == 0 && selectedYear == 0) {
-                        String username = TextSanitizer.sanitizeText(usernameEditText.getText().toString(), false);
-                        String password = TextSanitizer.sanitizeText(passwordEditText.getText().toString(), false);
-                        String question = TextSanitizer.sanitizeText(securityQuestionEditText.getText().toString(), false);
-                        String answer = TextSanitizer.sanitizeText(securityAnswerEditText.getText().toString(), false);
+                EditText usernameEditText = (EditText) currentActivity.findViewById(R.id.UsernameEditText);
+                EditText passwordEditText = (EditText) currentActivity.findViewById(R.id.PasswordEditText);
+                EditText securityQuestionEditText = (EditText) currentActivity.findViewById(R.id.SecurityQuestionEditText);
+                EditText securityAnswerEditText = (EditText) currentActivity.findViewById(R.id.SecurityAnswerEditText);
 
-                        boolean[] isValid = new boolean[4];
-                        isValid[0] = TextSanitizer.isValidText(username, 1, 20);
-                        isValid[1] = TextSanitizer.isValidText(password, 1, 20);
-                        isValid[2] = TextSanitizer.isValidText(question, 1, 150);
-                        isValid[3] = TextSanitizer.isValidText(answer, 1, 150);
+                if (usernameEditText.getText().toString() != null && passwordEditText.getText().toString() != null && securityQuestionEditText.getText().toString() != null && securityAnswerEditText.getText().toString() != null && selectedDay == 0 && selectedMonth == 0 && selectedYear == 0) {
+                    String username = TextSanitizer.sanitizeText(usernameEditText.getText().toString(), false);
+                    String password = TextSanitizer.sanitizeText(passwordEditText.getText().toString(), false);
+                    String question = TextSanitizer.sanitizeText(securityQuestionEditText.getText().toString(), false);
+                    String answer = TextSanitizer.sanitizeText(securityAnswerEditText.getText().toString(), false);
 
-                        if (isValid[0] && isValid[1] && isValid[2] && isValid[3]) {
-                            UserCredential user = new UserCredential(Integer.toString(appSharedPreferences.getInt("AthleteID", 0)), appSharedPreferences.getString("EnteredName", ""), appSharedPreferences.getString("EnteredSurname", ""), appSharedPreferences.getString("EnteredEmail", ""), appSharedPreferences.getString("Country", ""), "A", appSharedPreferences.getString("DateOfBirth", ""), username, password, question, answer);
-                            RegistrationBackgroundTask registrationBackgroundTask = new RegistrationBackgroundTask(currentActivity);
-                            registrationBackgroundTask.setUser(user);
-                            registrationBackgroundTask.execute(user.getName(), user.getSurname(), user.getEmailAddress(), user.getUsername(), user.getPassword(), user.getSecurityQuestion(), user.getSecurityAnswer(), user.getDateOfBirth(), user.getCountry(), user.getUserID());
+                    boolean [] isValid = new boolean[4];
+                    isValid[0] = TextSanitizer.isValidText(username, 1, 20);
+                    isValid[1] = TextSanitizer.isValidText(password, 1, 20);
+                    isValid[2] = TextSanitizer.isValidText(question, 1, 150);
+                    isValid[3] = TextSanitizer.isValidText(answer, 1, 150);
+
+                    if (isValid[0] && isValid[1] && isValid[2] && isValid[3]) {
+                        UserCredential user = new UserCredential(Integer.toString(appSharedPreferences.getInt("AthleteID", 0)), appSharedPreferences.getString("EnteredName", ""), appSharedPreferences.getString("EnteredSurname", ""), appSharedPreferences.getString("EnteredEmail", ""), appSharedPreferences.getString("Country", ""), "A", appSharedPreferences.getString("DateOfBirth", ""), username, password, question, answer);
+                        RegistrationBackgroundTask registrationBackgroundTask = new RegistrationBackgroundTask(currentActivity);
+                        registrationBackgroundTask.setUser(user);
+                        registrationBackgroundTask.execute(user.getName(), user.getSurname(), user.getEmailAddress(), user.getUsername(), user.getPassword(), user.getSecurityQuestion(), user.getSecurityAnswer(), user.getDateOfBirth(), user.getCountry(), user.getUserID());
 
 
-                        } else {
-                            displayMessage("Invalid Data Detected", "One or more text fields contain insufficient / invalid data. Please ensure data entered is between 1 and 100 characters");
-                        }
                     } else {
-                        displayMessage("All Fields Required", "One or more fields have missing data. Please note that all fields are required");
+                        displayMessage("Invalid Data Detected", "One or more text fields contain insufficient / invalid data. Please ensure data entered is between 1 and 100 characters");
                     }
-
                 } else {
-                    displayMessage("Check Your Internet Connection", "You are not connected to the internet. Please check your internet connection");
+                    displayMessage("All Fields Required", "One or more fields have missing data. Please note that all fields are required");
                 }
+
         }
     }
 

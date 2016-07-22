@@ -147,32 +147,6 @@
     <string name="height_hint">Enter Height</string>
     <string name="license_no_hint">License Number</string>
     <string name="update_profile_string">Update Profile</string>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 3526f070e03d4131bb2ccb8c0d6c2d3a854e04ff
->>>>>>> refs/remotes/origin/master
-    <string name="forgot_password_string">To retrieve your password, answer the security question you had setup. Should the answer be correct, an email will be sent to your registered email account with your password information.</string>
-    <string name="forgot_password_answer">Your Answer</string>
-    <string name="reset_password_string">Reset My Password</string>
-    <string name="new_password_hint">Your New Password</string>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 3526f070e03d4131bb2ccb8c0d6c2d3a854e04ff
-=======
->>>>>>> 5676b894da57e86f80ef226bff4e111040e0915a
-=======
->>>>>>> 3526f070e03d4131bb2ccb8c0d6c2d3a854e04ff
->>>>>>> refs/remotes/origin/master
-=======
-    <string name="security_title">Your Basic Security Information</string>
->>>>>>> c3f192701e94f9e8ccecad0adacf676d1a55cce2
     <string-array name="countries_list">
         <item>Afghanistan</item>
         <item>Albania</item>

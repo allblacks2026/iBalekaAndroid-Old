@@ -33,8 +33,6 @@ public class EditProfileFragment extends Fragment {
     private EditText weightEditText;
     private EditText heightEditText;
     private EditText licenseNoEditText;
-    private EditText securityQuestionEditText;
-    private EditText securityAnswerEditText;
     private MaterialSpinner genderSpinner;
     private Button updateButton;
     private List<String> genders = new ArrayList<String>();
@@ -46,6 +44,7 @@ public class EditProfileFragment extends Fragment {
         // Required empty public constructor
     }
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -54,7 +53,7 @@ public class EditProfileFragment extends Fragment {
         appSharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
         initalizeComponents(currentView);
         updateProfileBackgroundTask = new UpdateProfileBackgroundTask(getActivity());
-        updateProfileBackgroundTask.setTextBoxes(nameEditText, surnameEditText, emailEditText, passwordEditText, weightEditText, heightEditText, licenseNoEditText, genderSpinner, securityQuestionEditText, securityAnswerEditText);
+        updateProfileBackgroundTask.setTextBoxes(nameEditText, surnameEditText, emailEditText, passwordEditText, weightEditText, heightEditText, licenseNoEditText, genderSpinner);
         updateProfileBackgroundTask.setExecutionMode(ExecutionMode.EXECUTE_GET_ATHLETE_PROFILE);
         updateProfileBackgroundTask.execute(appSharedPreferences.getString("EmailAddress", ""));
         return currentView;
@@ -68,8 +67,6 @@ public class EditProfileFragment extends Fragment {
         surnameEditText = (EditText) currentView.findViewById(R.id.EditProfileSurnameEditText);
         emailEditText = (EditText) currentView.findViewById(R.id.EditProfileEmailEditText);
         emailEditText.setKeyListener(null);
-        securityQuestionEditText = (EditText) currentView.findViewById(R.id.EditProfileSecurityQuestionEditText);
-        securityAnswerEditText = (EditText) currentView.findViewById(R.id.EditProfileSecurityAnswerEditText);
         passwordEditText = (EditText) currentView.findViewById(R.id.EditProfilePasswordEditText);
         weightEditText = (EditText) currentView.findViewById(R.id.WeightEditText);
         heightEditText = (EditText) currentView.findViewById(R.id.HeightEditText);
@@ -79,7 +76,6 @@ public class EditProfileFragment extends Fragment {
         buttonListener = new MainActivityListener(getActivity());
         updateButton = (Button) currentView.findViewById(R.id.UpdateProfileButton);
         updateButton.setOnClickListener(buttonListener);
-
     }
 
 }
