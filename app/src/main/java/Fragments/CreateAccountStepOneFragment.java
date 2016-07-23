@@ -14,7 +14,7 @@ import android.widget.Spinner;
 import com.jaredrummler.materialspinner.MaterialSpinner;
 
 import Listeners.RegistrationButtonListener;
-import allblacks.com.Activities.R;
+import allblacks.com.iBaleka.R;
 
 public class CreateAccountStepOneFragment extends Fragment {
 

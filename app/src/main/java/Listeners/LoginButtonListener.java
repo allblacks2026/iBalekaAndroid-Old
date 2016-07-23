@@ -5,23 +5,19 @@ import android.app.AlertDialog;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import AppConstants.ExecutionMode;
 import BackgroundTasks.ForgotPasswordBackgroundTask;
 import BackgroundTasks.LoginBackgroundTask;
-import BackgroundTasks.UserGatewayBackgroundTask;
 import Fragments.CreateAccountStepOneFragment;
 import Fragments.ForgotPasswordFragment;
 import Utilities.DeviceHardwareChecker;
 import Utilities.TextSanitizer;
-import allblacks.com.Activities.MainActivity;
-import allblacks.com.Activities.R;
+import allblacks.com.iBaleka.R;
 
 /**
  * Created by Okuhle on 5/26/2016.

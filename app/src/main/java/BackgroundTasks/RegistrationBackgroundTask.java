@@ -9,9 +9,6 @@ import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.preference.PreferenceManager;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.InputStream;
@@ -25,7 +22,7 @@ import java.net.URLEncoder;
 import AppConstants.ExecutionMode;
 import Models.UserCredential;
 import Utilities.iBalekaSingleton;
-import allblacks.com.Activities.MainActivity;
+import allblacks.com.iBaleka.MainActivity;
 
 /**
  * Created by Okuhle on 7/11/2016.

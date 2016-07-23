@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="allblacks.com.Activities"
+<manifest package="allblacks.com.iBaleka"
           xmlns:android="http://schemas.android.com/apk/res/android">
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
@@ -18,17 +18,17 @@
         android:name="android.support.multidex.MultiDexApplication"
         >
         <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyDXMQFRTA-9ljgH70jMmbKPasyoIqLzpks"/>
-        <activity android:name="allblacks.com.Activities.AppSplashScreen">
+        <activity android:name="allblacks.com.iBaleka.AppSplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name="allblacks.com.Activities.LoginActivity"
+        <activity android:name="allblacks.com.iBaleka.LoginActivity"
                   android:windowSoftInputMode="stateUnchanged">
         </activity>
-        <activity android:name="allblacks.com.Activities.MainActivity">
+        <activity android:name="allblacks.com.iBaleka.MainActivity">
         </activity>
     </application>
 </manifest>

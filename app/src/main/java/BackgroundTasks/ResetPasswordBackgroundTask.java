@@ -9,7 +9,6 @@ import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.preference.PreferenceManager;
-import android.support.v7.widget.RecyclerView;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -22,7 +21,7 @@ import java.net.URL;
 import java.net.URLEncoder;
 
 import Fragments.LoginFragment;
-import allblacks.com.Activities.R;
+import allblacks.com.iBaleka.R;
 
 /**
  * Created by Okuhle on 7/14/2016.

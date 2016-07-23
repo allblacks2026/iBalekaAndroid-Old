@@ -2,25 +2,22 @@ package Fragments;
 
 
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.support.design.widget.TabLayout;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import Adapters.SearchResultsAdapter;
 import BackgroundTasks.SearchEventsBackgroundTask;
 import Models.Event;
-import allblacks.com.Activities.R;
+import allblacks.com.iBaleka.R;
 
 /**
  * A simple {@link Fragment} subclass.

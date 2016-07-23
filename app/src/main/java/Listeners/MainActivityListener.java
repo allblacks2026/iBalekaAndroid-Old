@@ -5,20 +5,17 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
-import android.support.design.widget.TabLayout;
 import android.view.View;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import com.jaredrummler.materialspinner.MaterialSpinner;
 
 import AppConstants.ExecutionMode;
-import BackgroundTasks.ApplicationBackgroundTask;
 import BackgroundTasks.UpdateProfileBackgroundTask;
 import Utilities.DeviceHardwareChecker;
 import Utilities.TextSanitizer;
-import allblacks.com.Activities.R;
+import allblacks.com.iBaleka.R;
 
 /**
  * Created by Okuhle on 6/26/2016.
@@ -64,6 +61,7 @@ public class MainActivityListener implements View.OnClickListener {
     private void processUpdateProfile()
     {
         DeviceHardwareChecker checker = new DeviceHardwareChecker(currentActivity);
+        checker.checkNetworkConnection();
         if (checker.isConnectedToInternet()) {
             Double weight = null;
             Double height = null;

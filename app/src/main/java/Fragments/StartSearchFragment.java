@@ -3,8 +3,7 @@ package Fragments;
 
 import android.Manifest;
 import android.app.AlertDialog;
-import android.app.Dialog;
-import android.app.DialogFragment;
+import android.app.FragmentManager;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -19,20 +18,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.ErrorDialogFragment;
-import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.PendingResult;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
-import com.google.android.gms.games.video.Videos;
 import com.google.android.gms.location.places.Place;
 import com.google.android.gms.location.places.PlaceLikelihood;
 import com.google.android.gms.location.places.PlaceLikelihoodBuffer;
@@ -43,12 +35,9 @@ import com.google.android.gms.location.places.ui.PlaceSelectionListener;
 import java.util.ArrayList;
 import java.util.List;
 
-import Adapters.SearchResultsAdapter;
 import BackgroundTasks.SearchEventsBackgroundTask;
-import Listeners.MainActivityListener;
 import Utilities.DeviceHardwareChecker;
-import allblacks.com.Activities.MainActivity;
-import allblacks.com.Activities.R;
+import allblacks.com.iBaleka.R;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -65,11 +54,9 @@ public class StartSearchFragment extends Fragment implements GoogleApiClient.OnC
     private static final String RESOLVING_ERROR = "resolving_error";
     private boolean permissionGranted = false;
     private static final int ACCESS_FINE_LOCATION_PERMISSION = 150;
-
     private List<Place> likelyPlaces = new ArrayList<>();
-
-
     private PlaceAutocompleteFragment autoCompleteFragment;
+
     public StartSearchFragment() {
 
     }
@@ -78,7 +65,7 @@ public class StartSearchFragment extends Fragment implements GoogleApiClient.OnC
                              Bundle savedInstanceState) {
         View currentView =  inflater.inflate(R.layout.fragment_start_search, container, false);
         resolvingError = savedInstanceState != null && savedInstanceState.getBoolean(RESOLVING_ERROR, false);
-        initializeComponents(currentView);
+        initializeComponents(currentView, savedInstanceState);
         buildGoogleApi();
         handlePermissions();
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
@@ -87,22 +74,25 @@ public class StartSearchFragment extends Fragment implements GoogleApiClient.OnC
         return currentView;
     }
 
-    private void initializeComponents(final View currentView) {
+    private void initializeComponents(final View currentView, Bundle savedInstanceState) {
         searchResultsRecyclerView = (RecyclerView) currentView.findViewById(R.id.EventSearchResultsRecyclerView);
         searchResultsRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        autoCompleteFragment = (PlaceAutocompleteFragment) getChildFragmentManager().findFragmentById(R.id.GoogleSearchFragment);
-        autoCompleteFragment.setOnPlaceSelectedListener(new PlaceSelectionListener() {
-            @Override
-            public void onPlaceSelected(Place place) {
-                currentLocation = place.getName().toString();
-                selectedPlace = place;
-                processSearch();
-            }
-            @Override
-            public void onError(Status status) {
-                displayMessage("Error Getting Location", status.getStatusMessage());
-            }
-        });
+        if (savedInstanceState == null) {
+            autoCompleteFragment = (PlaceAutocompleteFragment) getChildFragmentManager().findFragmentById(R.id.GoogleSearchFragment);
+            autoCompleteFragment.setOnPlaceSelectedListener(new PlaceSelectionListener() {
+                @Override
+                public void onPlaceSelected(Place place) {
+                    currentLocation = place.getName().toString();
+                    selectedPlace = place;
+                    processSearch();
+                }
+
+                @Override
+                public void onError(Status status) {
+                    displayMessage("Error Getting Location", status.getStatusMessage());
+                }
+            });
+        }
 
     }
 
@@ -241,5 +231,16 @@ public class StartSearchFragment extends Fragment implements GoogleApiClient.OnC
     public void onResume() {
         super.onResume();
         buildGoogleApi();
+    }
+
+    @Override
+    public void onDestroy() {
+        //Link: http://stackoverflow.com/questions/20919048/android-android-view-inflateexception-binary-xml-file-line-8-error-inflatin
+        super.onDestroy();
+        final FragmentManager manager = getFragmentManager();
+        final Fragment searchFragment = manager.findFragmentById(R.id.GoogleSearchFragment);
+        if (searchFragment != null) {
+            manager.beginTransaction().remove(searchFragment).commit();
+        }
     }
 }

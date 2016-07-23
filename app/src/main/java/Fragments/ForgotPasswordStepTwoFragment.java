@@ -1,7 +1,6 @@
 package Fragments;
 
 
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -14,7 +13,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import Listeners.ForgotPasswordListener;
-import allblacks.com.Activities.R;
+import allblacks.com.iBaleka.R;
 
 /**
  * A simple {@link Fragment} subclass.

@@ -7,14 +7,8 @@ import android.os.Bundle;
 import android.app.Fragment;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
-import android.support.v7.app.AppCompatActivity;
-import android.widget.TextView;
 
-import com.google.android.gms.vision.text.Text;
-
-import allblacks.com.Activities.LoginActivity;
-import allblacks.com.Activities.MainActivity;
-import allblacks.com.Activities.R;
+import allblacks.com.iBaleka.R;
 
 /**
  * A simple {@link Fragment} subclass.

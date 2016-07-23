@@ -5,15 +5,13 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-import android.support.v4.app.ActivityCompat;
 import android.view.View;
 import android.widget.EditText;
 
-import BackgroundTasks.ForgotPasswordBackgroundTask;
 import BackgroundTasks.ResetPasswordBackgroundTask;
 import Utilities.DeviceHardwareChecker;
 import Utilities.TextSanitizer;
-import allblacks.com.Activities.R;
+import allblacks.com.iBaleka.R;
 
 /**
  * Created by Okuhle on 7/13/2016.

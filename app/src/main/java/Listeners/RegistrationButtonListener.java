@@ -12,24 +12,18 @@ import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.jaredrummler.materialspinner.MaterialSpinner;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
-import AppConstants.ExecutionMode;
 import BackgroundTasks.RegistrationBackgroundTask;
-import BackgroundTasks.UserGatewayBackgroundTask;
 import Fragments.CreateAccountStepTwoFragment;
-import Models.User;
 import Models.UserCredential;
 import Utilities.DeviceHardwareChecker;
 import Utilities.TextSanitizer;
-import allblacks.com.Activities.R;
+import allblacks.com.iBaleka.R;
 
 /**
  * Created by Okuhle on 6/26/2016.

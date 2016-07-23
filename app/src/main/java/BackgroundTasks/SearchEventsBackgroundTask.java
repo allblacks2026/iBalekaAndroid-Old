@@ -25,7 +25,7 @@ import java.util.List;
 
 import Adapters.SearchResultsAdapter;
 import Models.Event;
-import allblacks.com.Activities.R;
+import allblacks.com.iBaleka.R;
 
 /**
  * Created by Okuhle on 7/12/2016.
