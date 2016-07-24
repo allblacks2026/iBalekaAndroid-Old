@@ -2,10 +2,7 @@ package BackgroundTasks;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -26,11 +23,10 @@ import java.net.URL;
 import java.net.URLEncoder;
 
 import AppConstants.ExecutionMode;
-import Fragments.AthleteLandingFragment;
 import Models.User;
 import Models.UserCredential;
 import Utilities.iBalekaSingleton;
-import allblacks.com.Activities.MainActivity;
+import allblacks.com.iBaleka.MainActivity;
 
 /**
  * Created by Okuhle on 5/6/2016.

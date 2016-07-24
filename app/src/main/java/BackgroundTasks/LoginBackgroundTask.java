@@ -3,14 +3,12 @@ package BackgroundTasks;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.preference.PreferenceManager;
 
-import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -23,9 +21,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 
-import AppConstants.ExecutionMode;
-import Models.UserCredential;
-import allblacks.com.Activities.MainActivity;
+import allblacks.com.iBaleka.MainActivity;
 
 /**
  * Created by Okuhle on 7/11/2016.

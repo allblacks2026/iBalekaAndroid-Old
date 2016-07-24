@@ -19,7 +19,7 @@ import java.util.List;
 import AppConstants.ExecutionMode;
 import BackgroundTasks.UpdateProfileBackgroundTask;
 import Listeners.MainActivityListener;
-import allblacks.com.Activities.R;
+import allblacks.com.iBaleka.R;
 
 /**
  * A simple {@link Fragment} subclass.

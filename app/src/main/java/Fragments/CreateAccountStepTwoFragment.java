@@ -9,10 +9,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
-import BackgroundTasks.UserGatewayBackgroundTask;
-import Listeners.LoginButtonListener;
 import Listeners.RegistrationButtonListener;
-import allblacks.com.Activities.R;
+import allblacks.com.iBaleka.R;
 
 /**
  * A simple {@link Fragment} subclass.

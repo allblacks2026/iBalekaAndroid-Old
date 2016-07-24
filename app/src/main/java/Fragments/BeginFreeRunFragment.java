@@ -7,7 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import allblacks.com.Activities.R;
+import allblacks.com.iBaleka.R;
 
 /**
  * A simple {@link Fragment} subclass.

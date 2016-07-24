@@ -10,7 +10,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import Models.AthleteActivity;
-import allblacks.com.Activities.R;
+import allblacks.com.iBaleka.R;
 
 /**
  * Created by Okuhle on 4/3/2016.
