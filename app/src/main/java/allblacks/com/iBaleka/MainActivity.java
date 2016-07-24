@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             setContentView(R.layout.activity_main);
             initializeControls();
             loadLandingScreenFragment();
+            iBalekaSingleton.setContext(this.getApplicationContext());
         } else {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_main);
@@ -60,6 +61,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         getSupportActionBar().setTitle(null);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(true);
+        //Code to determine the type of login - switch menu according to the user
         drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, mainActivityToolbar, R.string
                 .app_name, R
                 .string

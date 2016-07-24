@@ -7,17 +7,17 @@
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="10sp"
             android:layout_gravity="center"
             android:layout_centerInParent="true">
             <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                >
+                android:layout_alignParentTop="true">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_margin="10dp">
+                    android:orientation="vertical">
                     <ImageView
                         android:layout_marginTop="30dp"
                         android:layout_width="150dp"
@@ -32,10 +32,12 @@
                         style="@style/EditTexStyle"
                         android:id = "@+id/usernameEditText"
                         android:hint="@string/username_text"
+                        android:layout_margin="5dp"
                         />
 
                     <EditText
                         style="@style/EditTexStyle"
+                        android:layout_margin="5dp"
                         android:id = "@+id/passwordEditText"
                         android:inputType="textPassword"
                         android:hint="@string/password_text"
@@ -45,23 +47,27 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:baselineAligned="true"
-                        >
+                        android:layout_margin="5dp"
+                        android:orientation="horizontal">
                         <Button
                             style="@style/ButtonStyle"
                             android:id="@+id/loginButton"
                             android:text="@string/login_text"
+                            android:layout_gravity="top"
+
                             />
                         <Button
                             style="@style/ButtonStyle"
                             android:id = "@+id/registerAccountbtn"
                             android:text="@string/create_account_text"
+                            android:layout_gravity="top"
+
                             />
                         <Button
                             style="@style/ButtonStyle"
                             android:text="@string/forgot_password_text"
                             android:id = "@+id/forgotPasswordButton"
+                            android:padding="5sp"
                             />
                     </LinearLayout>
                 <Button
@@ -71,8 +77,6 @@
                     android:text="@string/google_sign_up_string"
                     android:background="@color/primary"
                     android:textColor="@android:color/white"
-                    android:padding="5sp"
-                    android:layout_margin="10dp"
                     >
                 </Button>
                 </LinearLayout>

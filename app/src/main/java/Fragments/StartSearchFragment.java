@@ -1,8 +1,6 @@
 package Fragments;
 
 
-<<<<<<< HEAD
-=======
 import android.Manifest;
 import android.app.AlertDialog;
 import android.app.FragmentManager;
@@ -10,20 +8,16 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
->>>>>>> 6563102e0688568dacf9c9cc64df6123baa27909
 import android.os.Bundle;
 import android.app.Fragment;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-<<<<<<< HEAD
-import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.EditText;
-
-import Listeners.MainActivityListener;
-import allblacks.com.Activities.R;
-=======
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -44,19 +38,10 @@ import java.util.List;
 import BackgroundTasks.SearchEventsBackgroundTask;
 import Utilities.DeviceHardwareChecker;
 import allblacks.com.iBaleka.R;
->>>>>>> 6563102e0688568dacf9c9cc64df6123baa27909
 
 /**
  * A simple {@link Fragment} subclass.
  */
-<<<<<<< HEAD
-public class StartSearchFragment extends Fragment {
-
-    private CheckBox sortResultsCheckBox;
-    private EditText searchCriteriaCheckBox;
-    private Button searchEventsButton;
-    private MainActivityListener buttonListener;
-=======
 public class StartSearchFragment extends Fragment implements GoogleApiClient.OnConnectionFailedListener, GoogleApiClient.ConnectionCallbacks {
 
     private RecyclerView searchResultsRecyclerView;
@@ -69,34 +54,20 @@ public class StartSearchFragment extends Fragment implements GoogleApiClient.OnC
     private static final String RESOLVING_ERROR = "resolving_error";
     private boolean permissionGranted = false;
     private static final int ACCESS_FINE_LOCATION_PERMISSION = 150;
-    private List<Place> likelyPlaces = new ArrayList<>();
-    private PlaceAutocompleteFragment autoCompleteFragment;
 
->>>>>>> 6563102e0688568dacf9c9cc64df6123baa27909
+    private List<Place> likelyPlaces = new ArrayList<>();
+
+
+    private PlaceAutocompleteFragment autoCompleteFragment;
     public StartSearchFragment() {
 
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         View currentView =  inflater.inflate(R.layout.fragment_start_search, container, false);
-<<<<<<< HEAD
-        initializeComponents(currentView);
-        return currentView;
-    }
-
-    private void initializeComponents(View currentView) {
-        searchCriteriaCheckBox = (EditText) currentView.findViewById(R.id.SearchCriteriaEditText);
-        sortResultsCheckBox = (CheckBox) currentView.findViewById(R.id.SortByDateCheckBox);
-        searchEventsButton = (Button) currentView.findViewById(R.id.SearchEventsButton);
-        buttonListener = new MainActivityListener(getActivity());
-        searchEventsButton.setOnClickListener(buttonListener);
-    }
-
-=======
         resolvingError = savedInstanceState != null && savedInstanceState.getBoolean(RESOLVING_ERROR, false);
-        initializeComponents(currentView, savedInstanceState);
+        initializeComponents(currentView);
         buildGoogleApi();
         handlePermissions();
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
@@ -105,25 +76,22 @@ public class StartSearchFragment extends Fragment implements GoogleApiClient.OnC
         return currentView;
     }
 
-    private void initializeComponents(final View currentView, Bundle savedInstanceState) {
+    private void initializeComponents(final View currentView) {
         searchResultsRecyclerView = (RecyclerView) currentView.findViewById(R.id.EventSearchResultsRecyclerView);
         searchResultsRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        if (savedInstanceState == null) {
-            autoCompleteFragment = (PlaceAutocompleteFragment) getChildFragmentManager().findFragmentById(R.id.GoogleSearchFragment);
-            autoCompleteFragment.setOnPlaceSelectedListener(new PlaceSelectionListener() {
-                @Override
-                public void onPlaceSelected(Place place) {
-                    currentLocation = place.getName().toString();
-                    selectedPlace = place;
-                    processSearch();
-                }
-
-                @Override
-                public void onError(Status status) {
-                    displayMessage("Error Getting Location", status.getStatusMessage());
-                }
-            });
-        }
+        autoCompleteFragment = (PlaceAutocompleteFragment) getChildFragmentManager().findFragmentById(R.id.GoogleSearchFragment);
+        autoCompleteFragment.setOnPlaceSelectedListener(new PlaceSelectionListener() {
+            @Override
+            public void onPlaceSelected(Place place) {
+                currentLocation = place.getName().toString();
+                selectedPlace = place;
+                processSearch();
+            }
+            @Override
+            public void onError(Status status) {
+                displayMessage("Error Getting Location", status.getStatusMessage());
+            }
+        });
 
     }
 
@@ -274,5 +242,4 @@ public class StartSearchFragment extends Fragment implements GoogleApiClient.OnC
             manager.beginTransaction().remove(searchFragment).commit();
         }
     }
->>>>>>> 6563102e0688568dacf9c9cc64df6123baa27909
 }

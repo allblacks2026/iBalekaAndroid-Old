@@ -39,7 +39,7 @@ public class UpdateProfileBackgroundTask extends AsyncTask<String, String, Strin
     private ExecutionMode mode;
     private String baseUrl = "http://154.127.61.157/ibaleka/";
 
-    private EditText nameEditText, surnameEditText, emailEditText, passwordEditText, weightEditText, heightEditText, licenseNoEditText;
+    private EditText nameEditText, surnameEditText, emailEditText, passwordEditText, weightEditText, heightEditText, licenseNoEditText, securityQuestion, securityAnswer;
     private MaterialSpinner genderSpinner;
 
     public UpdateProfileBackgroundTask(Activity currentActivity) {
@@ -48,7 +48,7 @@ public class UpdateProfileBackgroundTask extends AsyncTask<String, String, Strin
         editor = appSharedPreferences.edit();
     }
 
-    public void setTextBoxes(EditText nameEditText, EditText surnameEditText, EditText emailEditText, EditText passwordEditText, EditText weightEditText, EditText heightEditText, EditText licenseNoEditText, MaterialSpinner genderSpinner) {
+    public void setTextBoxes(EditText nameEditText, EditText surnameEditText, EditText emailEditText, EditText passwordEditText, EditText weightEditText, EditText heightEditText, EditText licenseNoEditText, MaterialSpinner genderSpinner, EditText securityQuestion, EditText securityAnswer) {
         this.nameEditText = nameEditText;
         this.surnameEditText = surnameEditText;
         this.emailEditText = emailEditText;
@@ -57,6 +57,8 @@ public class UpdateProfileBackgroundTask extends AsyncTask<String, String, Strin
         this.heightEditText = heightEditText;
         this.licenseNoEditText = licenseNoEditText;
         this.genderSpinner = genderSpinner;
+        this.securityAnswer = securityAnswer;
+        this.securityQuestion = securityQuestion;
     }
 
     public void setExecutionMode(ExecutionMode mode) {
@@ -125,8 +127,10 @@ public class UpdateProfileBackgroundTask extends AsyncTask<String, String, Strin
                     String height = params[5];
                     String licenseNo = params[6];
                     String gender = params[7];
+                    String securityQuestion = params[8];
+                    String securityAnswer = params[9];
 
-                    String urlData = URLEncoder.encode("Name", "utf-8")+"="+URLEncoder.encode(name, "utf-8")+"&"+URLEncoder.encode("Surname", "utf-8")+"="+URLEncoder.encode(surname, "utf-8")+"&"+URLEncoder.encode("EmailAddress", "utf-8")+"="+URLEncoder.encode(emailAddress, "utf-8")+"&"+URLEncoder.encode("Password", "utf-8")+"="+URLEncoder.encode(password, "utf-8")+"&"+URLEncoder.encode("Weight", "utf-8")+"="+URLEncoder.encode(weight, "utf-8")+"&"+URLEncoder.encode("Height", "utf-8")+"="+URLEncoder.encode(height, "utf-8")+"&"+URLEncoder.encode("LicenseNo", "utf-8")+"="+URLEncoder.encode(licenseNo, "utf-8")+"&"+URLEncoder.encode("Gender", "utf-8")+"="+URLEncoder.encode(gender, "utf-8");
+                    String urlData = URLEncoder.encode("Name", "utf-8")+"="+URLEncoder.encode(name, "utf-8")+"&"+URLEncoder.encode("Surname", "utf-8")+"="+URLEncoder.encode(surname, "utf-8")+"&"+URLEncoder.encode("EmailAddress", "utf-8")+"="+URLEncoder.encode(emailAddress, "utf-8")+"&"+URLEncoder.encode("Password", "utf-8")+"="+URLEncoder.encode(password, "utf-8")+"&"+URLEncoder.encode("Weight", "utf-8")+"="+URLEncoder.encode(weight, "utf-8")+"&"+URLEncoder.encode("Height", "utf-8")+"="+URLEncoder.encode(height, "utf-8")+"&"+URLEncoder.encode("LicenseNo", "utf-8")+"="+URLEncoder.encode(licenseNo, "utf-8")+"&"+URLEncoder.encode("Gender", "utf-8")+"="+URLEncoder.encode(gender, "utf-8")+"&"+URLEncoder.encode("SecurityQuestion", "utf-8") +"="+URLEncoder.encode(securityQuestion, "utf-8")+"&"+URLEncoder.encode("SecurityAnswer", "utf-8")+"="+URLEncoder.encode(securityAnswer, "utf-8");
 
                     HttpURLConnection updateConnection = (HttpURLConnection) updateURL.openConnection();
                     updateConnection.setRequestMethod("POST");
@@ -173,7 +177,7 @@ public class UpdateProfileBackgroundTask extends AsyncTask<String, String, Strin
                         if (s.equalsIgnoreCase("nullError300")) {
                             displayMessage("No Profile Details Found", "No matching profile details were found");
                         } else if (s.equalsIgnoreCase("nullError200")) {
-                            displayMessage("Error Getting Profile Detials", "An error occurred with sending the profile details to server");
+                            displayMessage("Error Getting Profile Details", "An error occurred with sending the profile details to server");
                         } else {
 
                             JSONObject profileObject = new JSONObject(s);
@@ -181,6 +185,8 @@ public class UpdateProfileBackgroundTask extends AsyncTask<String, String, Strin
                             surnameEditText.setText(profileObject.getString("Surname"));
                             emailEditText.setText(profileObject.getString("EmailAddress"));
                             passwordEditText.setText(profileObject.getString("Password"));
+                            securityQuestion.setText(profileObject.getString("SecurityQuestion"));
+                            securityAnswer.setText(profileObject.getString("SecurityAnswer"));
                             if (!profileObject.getString("Weight").equals("null")) {
                                 weightEditText.setText(profileObject.getString("Weight"));
                             }
@@ -192,12 +198,9 @@ public class UpdateProfileBackgroundTask extends AsyncTask<String, String, Strin
                             } else {
                                 genderSpinner.setSelectedIndex(0);
                             }
-<<<<<<< HEAD
-=======
 
                             setupMainProfilePage(profileObject.getString("Name") + " "+profileObject.getString("Surname"), profileObject.getString("Height"), profileObject.getString("Weight"), profileObject.getString("DateRegistered"), "Athlete");
 
->>>>>>> 6563102e0688568dacf9c9cc64df6123baa27909
                         }
                     }
                     break;

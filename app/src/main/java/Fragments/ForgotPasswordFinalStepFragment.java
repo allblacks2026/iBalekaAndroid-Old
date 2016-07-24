@@ -1,6 +1,7 @@
 package Fragments;
 
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;
@@ -11,7 +12,7 @@ import allblacks.com.iBaleka.R;
 
 public class ForgotPasswordFinalStepFragment extends Fragment {
 
-
+    private SharedPreferences appSharedPreferences;
     public ForgotPasswordFinalStepFragment() {
         // Required empty public constructor
     }

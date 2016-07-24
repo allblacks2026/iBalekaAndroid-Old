@@ -85,11 +85,6 @@ public class SearchResultsAdapter extends RecyclerView.Adapter<SearchResultsAdap
           currentCardView = (CardView) itemView.findViewById(R.id.EventSearchResultCardView);
           currentCardView.setOnClickListener(this);
       }
-<<<<<<< HEAD
-
-  }
-
-=======
         @Override
         public void onClick(View v) {
             TextView toolbarTextView = (TextView) currentActivity.findViewById(R.id.MainActivityTextView);
@@ -113,6 +108,5 @@ public class SearchResultsAdapter extends RecyclerView.Adapter<SearchResultsAdap
             transaction.commit();
         }
     }
->>>>>>> 6563102e0688568dacf9c9cc64df6123baa27909
 }
 

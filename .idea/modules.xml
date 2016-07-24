@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Okuhle.iml" filepath="$PROJECT_DIR$/Okuhle.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/iBalekaAndroid.iml" filepath="$PROJECT_DIR$/iBalekaAndroid.iml" />
     </modules>
   </component>
 </project>
