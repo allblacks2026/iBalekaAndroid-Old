@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import Listeners.LoginButtonListener;
-import allblacks.com.Activities.R;
+import allblacks.com.iBaleka.R;
 
 public class ForgotPasswordFragment extends Fragment {
 

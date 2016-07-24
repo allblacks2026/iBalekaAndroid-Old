@@ -23,6 +23,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Models.Event;
+<<<<<<< HEAD
+=======
+import allblacks.com.iBaleka.R;
+>>>>>>> 6563102e0688568dacf9c9cc64df6123baa27909
 
 /**
  * Created by Okuhle on 7/12/2016.

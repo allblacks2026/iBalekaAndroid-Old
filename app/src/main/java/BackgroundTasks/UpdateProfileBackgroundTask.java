@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.preference.PreferenceManager;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.jaredrummler.materialspinner.MaterialSpinner;
 
@@ -24,6 +25,7 @@ import java.net.URL;
 import java.net.URLEncoder;
 
 import AppConstants.ExecutionMode;
+import allblacks.com.iBaleka.R;
 
 /**
  * Created by Okuhle on 7/11/2016.
@@ -173,6 +175,7 @@ public class UpdateProfileBackgroundTask extends AsyncTask<String, String, Strin
                         } else if (s.equalsIgnoreCase("nullError200")) {
                             displayMessage("Error Getting Profile Detials", "An error occurred with sending the profile details to server");
                         } else {
+
                             JSONObject profileObject = new JSONObject(s);
                             nameEditText.setText(profileObject.getString("Name"));
                             surnameEditText.setText(profileObject.getString("Surname"));
@@ -189,6 +192,12 @@ public class UpdateProfileBackgroundTask extends AsyncTask<String, String, Strin
                             } else {
                                 genderSpinner.setSelectedIndex(0);
                             }
+<<<<<<< HEAD
+=======
+
+                            setupMainProfilePage(profileObject.getString("Name") + " "+profileObject.getString("Surname"), profileObject.getString("Height"), profileObject.getString("Weight"), profileObject.getString("DateRegistered"), "Athlete");
+
+>>>>>>> 6563102e0688568dacf9c9cc64df6123baa27909
                         }
                     }
                     break;
@@ -226,5 +235,21 @@ public class UpdateProfileBackgroundTask extends AsyncTask<String, String, Strin
             }
         });
         messageBox.show();
+    }
+
+    private void setupMainProfilePage(String nameSurname, String height, String weight, String date, String userType) {
+        TextView profileNameSurname = (TextView) currentActivity.findViewById(R.id.profileNameSurnameTextView);
+        TextView dateRegistered = (TextView) currentActivity.findViewById(R.id.dateRegisteredTextView);
+        TextView totalPersonalRuns = (TextView) currentActivity.findViewById(R.id.totalPersonalRunsTextView);
+        TextView totalEventRuns = (TextView) currentActivity.findViewById(R.id.totalEventRunsTextView);
+        TextView heightTextView = (TextView) currentActivity.findViewById(R.id.heightText);
+        TextView weightTextView = (TextView) currentActivity.findViewById(R.id.weightText);
+        TextView userTypeTextView = (TextView) currentActivity.findViewById(R.id.userTypeTextView);
+
+        profileNameSurname.setText(nameSurname);
+        dateRegistered.setText(date);
+        heightTextView.setText(height);
+        weightTextView.setText(weight);
+        userTypeTextView.setText(userType);
     }
 }

@@ -10,10 +10,8 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import Fragments.AthleteLandingFragment;
-import Models.Athlete;
 import Models.AthleteData;
-import allblacks.com.Activities.R;
+import allblacks.com.iBaleka.R;
 
 /**
  * Created by Okuhle on 7/5/2016.

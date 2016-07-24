@@ -1,13 +1,11 @@
 <resources>
     <string name="server_client_id">83850516531-47h0pusnmde4ooiecprjm3g7dqs7rdou.apps.googleusercontent.com</string>
-    <string name="google_api_key">AIzaSyDXMQFRTA-9ljgH70jMmbKPasyoIqLzpks</string>
-    <string name="google_app_id">solar-melody-129713</string>
     <string name="app_name">iBaleka Android Prototype</string>
     <string name="username_text">Enter Username</string>
     <string name="password_text">Enter Password</string>
     <string name="login_text">Log In</string>
-    <string name="forgot_password_text">Forgot Password</string>
-    <string name="create_account_text">Create Account</string>
+    <string name="forgot_password_text">Change Password</string>
+    <string name="create_account_text">Sign Up</string>
     <string name="application_preferences_text">Application Settings</string>
     <string name="about_application_text">About Application</string>
     <string name="register_account_text">To use iBaleka, you will need to have an account
@@ -147,6 +145,16 @@
     <string name="height_hint">Enter Height</string>
     <string name="license_no_hint">License Number</string>
     <string name="update_profile_string">Update Profile</string>
+<<<<<<< HEAD
+=======
+    <string name="forgot_password_string">To retrieve your password, answer the security question you had setup. Should the answer be correct, an email will be sent to your registered email account with your password information.</string>
+    <string name="forgot_password_answer">Your Answer</string>
+    <string name="reset_password_string">Reset My Password</string>
+    <string name="new_password_hint">Your New Password</string>
+    <string name="security_title">Your Basic Security Information</string>
+    <string name="facebook_app_id">1828138320753956</string>
+    <string name="google_sign_up_string">Sign In With Google</string>
+>>>>>>> 6563102e0688568dacf9c9cc64df6123baa27909
     <string-array name="countries_list">
         <item>Afghanistan</item>
         <item>Albania</item>

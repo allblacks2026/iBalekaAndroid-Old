@@ -15,7 +15,7 @@ import java.util.List;
 
 import Adapters.AthleteActivityAdapter;
 import Models.AthleteActivity;
-import allblacks.com.Activities.R;
+import allblacks.com.iBaleka.R;
 
 public class UserActivityTabFragment extends Fragment {
 

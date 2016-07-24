@@ -38,10 +38,10 @@
     <style name="ButtonStyle">
         <item name="android:background">@drawable/custom_button</item>
         <item name="android:textColor">@android:color/white</item>
-        <item name="android:layout_width">200dp</item>
-        <item name="android:layout_height">50dp</item>
-        <item name="android:layout_margin">5dp</item>
-        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">3dp</item>
+        <item name="android:padding">5sp</item>
 
     </style>
 

@@ -11,9 +11,13 @@ import android.widget.TextView;
 
 import Fragments.AthleteLandingFragment;
 import Fragments.ProfileFragment;
-import Fragments.SearchFragment;
 import Fragments.StartRunFragment;
+<<<<<<< HEAD
 import allblacks.com.Activities.R;
+=======
+import Fragments.StartSearchFragment;
+import allblacks.com.iBaleka.R;
+>>>>>>> 6563102e0688568dacf9c9cc64df6123baa27909
 
 /**
  * Created by Okuhle on 3/28/2016.
