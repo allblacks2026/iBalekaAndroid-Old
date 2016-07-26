@@ -25,7 +25,6 @@ import java.net.URLEncoder;
 import AppConstants.ExecutionMode;
 import Models.User;
 import Models.UserCredential;
-import Utilities.iBalekaSingleton;
 import allblacks.com.iBaleka.MainActivity;
 
 /**
@@ -43,7 +42,6 @@ public class UserGatewayBackgroundTask extends AsyncTask<String, String, String>
     public UserGatewayBackgroundTask(Activity currentContext) {
         this.currentContext = currentContext;
         progressDialog = new ProgressDialog(currentContext);
-        iBalekaSingleton singleton = iBalekaSingleton.getInstance();
     }
 
     public void setUser(UserCredential user) {

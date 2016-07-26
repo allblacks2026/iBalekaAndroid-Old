@@ -10,24 +10,17 @@ $emailAddress = $_POST['EmailAddress'];
 
 if (isset($emailAddress)) {
 
-    $getUser = $connectionObject->prepare("CALL sp_ForgotPassword(?)");
+    $getUser = $connectionObject->prepare("CALL ForgotPassword(?)");
     $getUser->bindParam(1, $emailAddress, PDO::PARAM_STR);
 
     $getUser->execute();
     if ($getUser->rowCount() == 0) {
-        $errorMsg = array('error' => array('message', 'No account was found with the supplied email address. Please enter a valid email'));
-        echo json_encode($errorMsg);
+        echo "Error200";
         $getUser->closeCursor();
     } else {
-        $result = $getUser->fetchAll();
-        $username = $result['Username'];
-        $password = $result['Password'];
-        $name = $result['Name'];
-        $surname = $result['Surname'];
-
-        $mailObject = new PHPMailer();
+        $result = $getUser->fetch(PDO::FETCH_ASSOC);
+        echo json_encode($result);
     }
 } else {
-    $errorMsg = array('error' => array('message', 'Please ensure you have sent a valid email address'));
-    echo json_encode($errorMsg);
+    echo "Error100";
 }

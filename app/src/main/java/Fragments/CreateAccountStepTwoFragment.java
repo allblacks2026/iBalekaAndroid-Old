@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import Listeners.RegistrationButtonListener;
 import allblacks.com.iBaleka.R;
@@ -21,6 +22,7 @@ public class CreateAccountStepTwoFragment extends Fragment {
             securityAnswerEditText;
     private Button createAccountButton;
     private RegistrationButtonListener buttonListener;
+    private TextView toolbarTextView;
     public CreateAccountStepTwoFragment() {
         // Required empty public constructor
     }
@@ -30,6 +32,8 @@ public class CreateAccountStepTwoFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View myView = inflater.inflate(R.layout.fragment_create_account_step_two, container, false);
+        toolbarTextView = (TextView) getActivity().findViewById(R.id.LoginActivityToolbarTextView);
+        toolbarTextView.setText("Create Account - Step 2 of 2");
         usernameEditText = (EditText) myView.findViewById(R.id.usernameEditText);
         passwordEditText = (EditText) myView.findViewById(R.id.passwordEditText);
         securityQuestionEditText = (EditText) myView.findViewById(R.id.SecurityQuestionEditText);
@@ -50,5 +54,6 @@ public class CreateAccountStepTwoFragment extends Fragment {
     public void onResume() {
         super.onResume();
         getRetainInstance();
+        toolbarTextView.setText("Create Account - Step 2 of 2");
     }
 }

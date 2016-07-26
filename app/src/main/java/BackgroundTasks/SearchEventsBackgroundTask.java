@@ -66,7 +66,6 @@ public class SearchEventsBackgroundTask extends AsyncTask<String, String, String
         searchLocation = params[0];
         telephoneNumber = params[1];
         try {
-
             URL forgotPasswordLink = new URL(execScript);
             HttpURLConnection forgetPasswordConnection = (HttpURLConnection)
                     forgotPasswordLink.openConnection();
@@ -119,7 +118,8 @@ public class SearchEventsBackgroundTask extends AsyncTask<String, String, String
                     JSONArray array = new JSONArray(s);
                     for (int a = 0; a < array.length(); a++) {
                         JSONObject currentResult = array.getJSONObject(a);
-                        Event newEvent = new Event(currentResult.getString("EventID"), currentResult.getString("Description"), currentResult.getString("Date"), currentResult.getString("Time"), currentResult.getString("Location"));
+
+                        Event newEvent = new Event(currentResult.getString("EventID"), currentResult.getString("Description"), currentResult.getString("Date"), currentResult.getString("Time"), currentResult.getString("Location"), currentResult.getString("Condition"), currentResult.getString("StartPoint"), currentResult.getString("EndPoint"), currentResult.getString("Distance"));
                         eventList.add(newEvent);
                     }
 

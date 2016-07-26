@@ -46,7 +46,6 @@ public class NavigationMenuOnItemSelectedListener implements NavigationView.OnNa
                 trans.replace(R.id.MainActivityContentArea, homeFragment, "HomeFragment");
                 trans.addToBackStack("HomeFragment");
                 trans.commit();
-                toolbarTextView.setText("Welcome, User"); //code to get the user falls here
                 drawerLayout.closeDrawers();
                 break;
             case R.id.athleteViewProfile:
@@ -57,7 +56,6 @@ public class NavigationMenuOnItemSelectedListener implements NavigationView.OnNa
                 thirdTrans.replace(R.id.MainActivityContentArea, profileFragment,
                         "ProfileFragment");
                 thirdTrans.addToBackStack("ProfileFragment");
-                toolbarTextView.setText("Athlete Profile Details");
                 drawerLayout.closeDrawers();
                 thirdTrans.commit();
                 break;
@@ -69,7 +67,6 @@ public class NavigationMenuOnItemSelectedListener implements NavigationView.OnNa
                 startRunTransaction.replace(R.id.MainActivityContentArea, startRunFragment,
                         "StartRunFragment");
                 startRunTransaction.addToBackStack("StartRunFragment");
-                toolbarTextView.setText("Start a Run");
                 drawerLayout.closeDrawers();
                 startRunTransaction.commit();
                 break;
@@ -81,7 +78,6 @@ public class NavigationMenuOnItemSelectedListener implements NavigationView.OnNa
                 searchFragmentTransaction.replace(R.id.MainActivityContentArea, searchFragment,
                         "SearchFragment");
                 searchFragmentTransaction.addToBackStack("SearchFragment");
-                toolbarTextView.setText("Search For Events");
                 drawerLayout.closeDrawers();
                 searchFragmentTransaction.commit();
                 break;

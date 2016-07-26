@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.jaredrummler.materialspinner.MaterialSpinner;
 
@@ -27,6 +28,7 @@ public class LoginFragment extends Fragment {
     private Button forgotPasswordButton;
     private LoginButtonListener buttonListener;
     private List<String> signInList;
+    private TextView toolbarTextView;
 
     public LoginFragment() {
     }
@@ -42,6 +44,8 @@ public class LoginFragment extends Fragment {
         signInList = new ArrayList<>();
         signInList.add("Sign-up with Facebook");
         signInList.add("Sign-up with Google");
+        toolbarTextView = (TextView) getActivity().findViewById(R.id.LoginActivityToolbarTextView);
+        toolbarTextView.setText("Login to Continue");
         usernameEditText = (EditText) currentView.findViewById(R.id.usernameEditText);
         passwordEditText = (EditText) currentView.findViewById(R.id.passwordEditText);
         loginButton = (Button) currentView.findViewById(R.id.loginButton);
@@ -54,4 +58,9 @@ public class LoginFragment extends Fragment {
 
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        toolbarTextView.setText("Login to Continue");
+    }
 }

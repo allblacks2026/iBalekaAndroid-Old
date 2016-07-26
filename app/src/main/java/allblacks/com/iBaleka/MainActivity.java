@@ -22,7 +22,6 @@ import Fragments.ApplicationPreferencesFragment;
 import Fragments.AthleteLandingFragment;
 import Fragments.EditProfileFragment;
 import Listeners.NavigationMenuOnItemSelectedListener;
-import Utilities.iBalekaSingleton;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     private Toolbar mainActivityToolbar;
@@ -101,13 +100,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
     @Override
     protected void onPause() {
-        editor.putString("ToolbarText", toolbarTextView.getText().toString());
-        editor.commit();
         super.onPause();
     }
+
     protected void onResume() {
         super.onResume();
-        toolbarTextView.setText(activityPreferences.getString("ToolbarText", ""));
     }
     @Override
     public void onBackPressed() {
@@ -170,7 +167,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 EditProfileFragment editProfileFragment = new EditProfileFragment();
                 FragmentTransaction profileTrans = mgr.beginTransaction();
                 profileTrans.replace(R.id.MainActivityContentArea, editProfileFragment, "EditProfileFragment");
-                toolbarTextView.setText("Edit Profile");
                 profileTrans.addToBackStack(null);
                 profileTrans.commit();
                 break;

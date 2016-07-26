@@ -29,20 +29,19 @@ public class GetAthleteProfileBackgroundTask extends AsyncTask<String, String, S
     private Activity currentActivity;
     private String baseUrl = "http://154.127.61.157/ibaleka/";
     private SharedPreferences appSharedPreferences;
+    private SharedPreferences.Editor editor;
     private ProgressDialog progressDialog;
     private TextView totalEventRuns, totalPersonalRuns;
 
     public GetAthleteProfileBackgroundTask(Activity currentActivity) {
         this.currentActivity = currentActivity;
         appSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this.currentActivity);
+        editor = appSharedPreferences.edit();
 
     }
 
     @Override
     protected void onPreExecute() {
-        totalPersonalRuns = (TextView) currentActivity.findViewById(R.id.personalRunsLabel);
-        totalEventRuns = (TextView) currentActivity.findViewById(R.id.totalEventRunsLabel);
-
         progressDialog = new ProgressDialog(currentActivity);
         progressDialog.setTitle("Fetching Athlete Profile");
         progressDialog.setMessage("Please wait while we fetch your athlete profile");
@@ -57,7 +56,6 @@ public class GetAthleteProfileBackgroundTask extends AsyncTask<String, String, S
         try {
             String profileUrl = baseUrl + "get_athlete_runs.php";
             String url = URLEncoder.encode("EmailAddress", "utf-8")+"="+URLEncoder.encode(emailAddress, "utf-8");
-
             URL profileLink = new URL(profileUrl);
             HttpURLConnection profileConnection = (HttpURLConnection) profileLink.openConnection();
             profileConnection.setRequestMethod("POST");
@@ -86,7 +84,7 @@ public class GetAthleteProfileBackgroundTask extends AsyncTask<String, String, S
         if (progressDialog.isShowing()) {
             progressDialog.cancel();
         }
-try {
+    try {
     if (!s.equals(null)) {
 
         if (s.equalsIgnoreCase("Error300")) {
@@ -95,8 +93,9 @@ try {
             displayMessage("No Matching Records", "The system was unable to find matching records");
         } else {
             JSONObject userObject = new JSONObject(s);
-            totalPersonalRuns.setText(userObject.getString("TotalPersonalRuns"));
-            totalEventRuns.setText(userObject.getString("TotalEventRuns"));
+            editor.putString("TotalPersonalRuns", userObject.getString("TotalPersonalRuns"));
+            editor.putString("TotalEventRuns", userObject.getString("TotalEventRuns"));
+            editor.commit();
         }
     }
 } catch (Exception error) {

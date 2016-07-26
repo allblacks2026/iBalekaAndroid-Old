@@ -1,67 +1,171 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="Fragments.EventDetailsFragment"
     >
-    <android.support.v7.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5sp">
-        <LinearLayout
+    <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:weightSum="100">
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:weightSum="100">
+            android:layout_height="wrap_content">
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@android:color/white"
-                android:background="@color/primary_dark"
-                android:textSize="25sp"
-                android:id = "@+id/EventDetailsTitleTextView"
                 android:layout_margin="5dp"
-                android:textAlignment="center"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id = "@+id/EventDetailsDescriptionTextView"
-                android:layout_margin="5dp"
-                android:textAlignment="viewStart"
-                />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:id = "@+id/EventDetailsDateTextView"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:id = "@+id/EventDetailsTimeTextView"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:id = "@+id/EventDetailsLocationTextView"/>
-            <com.google.android.gms.maps.MapView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="50"
-                android:layout_margin="5dp"
-                android:id = "@+id/EventDetailsMappedRoute">
-            </com.google.android.gms.maps.MapView>
-            <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id = "@+id/EventDetailsRegisterForEvent"
-                style="@style/ButtonStyle"
-                android:text="Register For Event"
-                android:padding="10sp"
-                android:layout_gravity="center"/>
+                android:text="@string/event_name_string"
+                android:layout_alignParentStart="true"
+                android:id = "@+id/EventDetails_EventNameTextView"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_margin="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id = "@+id/EventDetails_EventNameLabel"
+                android:layout_alignParentEnd="true"
+                android:layout_alignBaseline="@id/EventDetails_EventNameTextView"
+                android:text="NAME"/>
+            <TextView
+                android:layout_margin="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/EventDetailsLocationLabel"
+                android:text="@string/event_location"
+                android:layout_below="@id/EventDetails_EventNameTextView"
+                android:layout_alignParentStart="true"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_margin="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/EventDetailsLocationLabel"
+                android:layout_alignParentEnd="true"
+                android:id = "@+id/EventDetails_LocationLabel"
+                android:text="LOCATION"/>
+            <TextView
+                android:layout_margin="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/EventDetailsLocationLabel"
+                android:text="@string/event_distance_string"
+                android:textStyle="bold"
+                android:id ="@+id/EventDetailsDistanceTextView"
+                android:layout_alignParentStart="true"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/EventDetailsDistanceLabel"
+                android:text="DISTANCE"
+                android:layout_alignBaseline="@id/EventDetailsDistanceTextView"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="5dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id = "@+id/EventDetailsTimeTextView"
+                android:text="@string/event_time_string"
+                android:textStyle="bold"
+                android:layout_below="@id/EventDetailsDistanceTextView"
+                android:layout_margin="5dp"
+                android:layout_alignParentStart="true"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/EventDetailsTimeLabel"
+                android:layout_alignBaseline="@id/EventDetailsTimeTextView"
+                android:layout_alignParentEnd="true"
+                android:text="TIME"
+                android:layout_margin="5dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id = "@+id/EventDetailsConditionTextView"
+                android:text="@string/event_message_string"
+                android:textStyle ="bold"
+                android:layout_below="@id/EventDetailsTimeTextView"
+                android:layout_margin="5dp"
+                android:layout_alignParentStart="true"/>
+            <TextView
+                android:layout_margin="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CONDITION"
+                android:layout_alignBaseline="@id/EventDetailsConditionTextView"
+                android:layout_alignParentEnd="true"
+                android:id = "@+id/EventDetailsConditionLabel"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id = "@+id/EventDetailsStartPointTextView"
+                android:text = "@string/start_point_string"
+                android:layout_below="@id/EventDetailsConditionTextView"
+                android:textStyle="bold"
+                android:layout_margin="5dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id = "@+id/EventDetailsStartPointLabel"
+                android:layout_alignBaseline="@id/EventDetailsStartPointTextView"
+                android:layout_alignParentEnd="true"
+                android:text = "START POINT"
+                android:layout_margin="5dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id = "@+id/EventDetailsEndPointTextView"
+                android:layout_below="@id/EventDetailsStartPointTextView"
+                android:text = "@string/end_point_string"
+                android:layout_margin="5dp"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="END POINT"
+                android:layout_margin="5dp"
+                android:layout_alignBaseline="@id/EventDetailsEndPointTextView"
+                android:layout_alignParentEnd="true"
+                android:id = "@+id/EventDetailsEndPointLabel"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id = "@+id/EventDetails_DateTextView"
+                android:text = "@string/event_date_string"
+                android:layout_below="@id/EventDetailsEndPointTextView"
+                android:layout_margin="5dp"
+                android:textStyle ="bold"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id = "@+id/EventDetails_DateLabel"
+                android:layout_alignBaseline="@id/EventDetails_DateTextView"
+                android:layout_alignParentEnd="true"
+                android:text = "DATE"
+                android:layout_margin="5dp"/>
 
 
-        </LinearLayout>
-    </android.support.v7.widget.CardView>
-
-</FrameLayout>
+        </RelativeLayout>
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="100"
+                        android:layout_gravity="bottom">
+                        <com.google.android.gms.maps.MapView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="5dp"
+                            android:id = "@+id/EventDetailsMappedRoute"/>
+                    </FrameLayout>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id = "@+id/EventDetailsRegisterForEvent"
+            style="@style/ButtonStyle"
+            android:text="Register For Event"
+            android:padding="10sp"
+            android:layout_gravity="center|bottom"/>
+                </LinearLayout>
+</android.support.v7.widget.CardView>

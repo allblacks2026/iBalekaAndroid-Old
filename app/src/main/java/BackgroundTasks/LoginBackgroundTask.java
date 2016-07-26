@@ -113,12 +113,13 @@ public class LoginBackgroundTask extends AsyncTask<String, String, String> {
                     globalEditor.putString("Surname", userObj.getString("Surname"));
                     globalEditor.putString("EmailAddress", userObj.getString("EmailAddress"));
                     globalEditor.putString("DateOfBirth", userObj.getString("DateOfBirth"));
-                    globalEditor.putString("UserType", userObj.getString("UserType"));
+                    globalEditor.putString("UserType", "Athlete");
                     globalEditor.putString("Username", userObj.getString("Username"));
                     globalEditor.putString("Password", userObj.getString("Password"));
                     globalEditor.putString("SecurityQuestion", userObj.getString("SecurityQuestion"));
                     globalEditor.putString("SecurityAnswer", userObj.getString("SecurityAnswer"));
                     globalEditor.putString("Country", userObj.getString("Country"));
+                    globalEditor.putString("DateRegistered", userObj.getString("DateRegistered"));
                     globalEditor.commit();
 
                     Intent mainActivity = new Intent(currentContext, MainActivity.class);

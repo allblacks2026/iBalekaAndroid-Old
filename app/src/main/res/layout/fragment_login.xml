@@ -1,69 +1,69 @@
-    <RelativeLayout
+<RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         >
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_centerInParent="true">
-            <ScrollView
+            >
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                >
+                android:orientation="vertical"
+                android:layout_margin="10dp">
+                <ImageView
+                    android:layout_marginTop="30dp"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:src="@drawable/ibaleka_logo"
+                    android:id = "@+id/imageView"
+                    android:layout_gravity="center"
+                    />
+
+                <EditText
+                    android:layout_gravity="center"
+                    style="@style/EditTexStyle"
+                    android:id = "@+id/usernameEditText"
+                    android:hint="@string/username_text"
+                    />
+
+                <EditText
+                    style="@style/EditTexStyle"
+                    android:id = "@+id/passwordEditText"
+                    android:inputType="textPassword"
+                    android:hint="@string/password_text"
+                    android:layout_gravity="center"
+                    />
+
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_margin="10dp">
-                    <ImageView
-                        android:layout_marginTop="30dp"
-                        android:layout_width="150dp"
-                        android:layout_height="150dp"
-                        android:src="@drawable/ibaleka_logo"
-                        android:id = "@+id/imageView"
-                        android:layout_gravity="center"
+                    android:orientation="horizontal"
+                    android:baselineAligned="true"
+                    android:layout_gravity="center"
+                    >
+                    <Button
+                        style="@style/ButtonStyle"
+                        android:id="@+id/loginButton"
+                        android:text="@string/login_text"
                         />
-
-                    <EditText
-                        android:layout_gravity="center"
-                        style="@style/EditTexStyle"
-                        android:id = "@+id/usernameEditText"
-                        android:hint="@string/username_text"
+                    <Button
+                        style="@style/ButtonStyle"
+                        android:id = "@+id/registerAccountbtn"
+                        android:text="@string/create_account_text"
                         />
-
-                    <EditText
-                        style="@style/EditTexStyle"
-                        android:id = "@+id/passwordEditText"
-                        android:inputType="textPassword"
-                        android:hint="@string/password_text"
-                        android:layout_gravity="center"
+                    <Button
+                        style="@style/ButtonStyle"
+                        android:text="@string/forgot_password_text"
+                        android:id = "@+id/forgotPasswordButton"
                         />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:baselineAligned="true"
-                        >
-                        <Button
-                            style="@style/ButtonStyle"
-                            android:id="@+id/loginButton"
-                            android:text="@string/login_text"
-                            />
-                        <Button
-                            style="@style/ButtonStyle"
-                            android:id = "@+id/registerAccountbtn"
-                            android:text="@string/create_account_text"
-                            />
-                        <Button
-                            style="@style/ButtonStyle"
-                            android:text="@string/forgot_password_text"
-                            android:id = "@+id/forgotPasswordButton"
-                            />
-                    </LinearLayout>
+                </LinearLayout>
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -75,7 +75,9 @@
                     android:layout_margin="10dp"
                     >
                 </Button>
-                </LinearLayout>
-            </ScrollView>
+            </LinearLayout>
         </android.support.v7.widget.CardView>
+
+    </ScrollView>
+
     </RelativeLayout>

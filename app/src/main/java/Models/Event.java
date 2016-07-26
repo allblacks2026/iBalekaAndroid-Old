@@ -10,13 +10,21 @@ public class Event {
     private String eventDate;
     private String eventTime;
     private String eventLocation;
+    private String condition;
+    private String startPoint;
+    private String endPoint;
+    private String distance;
 
-    public Event(String eventID, String eventDescription, String eventDate, String eventTime, String eventLocation) {
+    public Event(String eventID, String eventDescription, String eventDate, String eventTime, String eventLocation, String condition, String startPoint, String endPoint, String distance) {
         this.eventID = eventID;
         this.eventDescription = eventDescription;
         this.eventDate = eventDate;
         this.eventTime = eventTime;
         this.eventLocation = eventLocation;
+        this.condition = condition;
+        this.startPoint = startPoint;
+        this.endPoint = endPoint;
+        this.distance = distance;
     }
 
     public String getEventID() {
@@ -57,5 +65,37 @@ public class Event {
 
     public void setEventLocation(String eventLocation) {
         this.eventLocation = eventLocation;
+    }
+
+    public String getCondition() {
+        return condition;
+    }
+
+    public void setCondition(String condition) {
+        this.condition = condition;
+    }
+
+    public String getStartPoint() {
+        return startPoint;
+    }
+
+    public void setStartPoint(String startPoint) {
+        this.startPoint = startPoint;
+    }
+
+    public String getEndPoint() {
+        return endPoint;
+    }
+
+    public void setEndPoint(String endPoint) {
+        this.endPoint = endPoint;
+    }
+
+    public String getDistance() {
+        return distance;
+    }
+
+    public void setDistance(String distance) {
+        this.distance = distance;
     }
 }

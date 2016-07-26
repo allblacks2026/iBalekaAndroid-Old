@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.jaredrummler.materialspinner.MaterialSpinner;
 
@@ -41,6 +42,7 @@ public class EditProfileFragment extends Fragment {
     private UpdateProfileBackgroundTask updateProfileBackgroundTask;
     private SharedPreferences appSharedPreferences;
     private MainActivityListener buttonListener;
+    private TextView toolbarTextView;
 
     public EditProfileFragment() {
         // Required empty public constructor
@@ -53,10 +55,13 @@ public class EditProfileFragment extends Fragment {
         View currentView =  inflater.inflate(R.layout.fragment_edit_profile, container, false);
         appSharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
         initalizeComponents(currentView);
-        updateProfileBackgroundTask = new UpdateProfileBackgroundTask(getActivity());
-        updateProfileBackgroundTask.setTextBoxes(nameEditText, surnameEditText, emailEditText, passwordEditText, weightEditText, heightEditText, licenseNoEditText, genderSpinner, securityQuestionEditText, securityAnswerEditText);
-        updateProfileBackgroundTask.setExecutionMode(ExecutionMode.EXECUTE_GET_ATHLETE_PROFILE);
-        updateProfileBackgroundTask.execute(appSharedPreferences.getString("EmailAddress", ""));
+        if (savedInstanceState == null) {
+            updateProfileBackgroundTask = new UpdateProfileBackgroundTask(getActivity());
+            updateProfileBackgroundTask.setTextBoxes(nameEditText, surnameEditText, emailEditText, passwordEditText, weightEditText, heightEditText, licenseNoEditText, genderSpinner, securityQuestionEditText, securityAnswerEditText);
+            updateProfileBackgroundTask.setExecutionMode(ExecutionMode.EXECUTE_GET_ATHLETE_PROFILE);
+            updateProfileBackgroundTask.execute(appSharedPreferences.getString("EmailAddress", ""));
+        }
+        setupData();
         return currentView;
     }
 
@@ -64,6 +69,8 @@ public class EditProfileFragment extends Fragment {
         genders.add("None Selected");
         genders.add("Male");
         genders.add("Female");
+        toolbarTextView = (TextView) getActivity().findViewById(R.id.MainActivityTextView);
+        toolbarTextView.setText("Edit Your Profile");
         nameEditText = (EditText) currentView.findViewById(R.id.EditProfileNameEditText);
         surnameEditText = (EditText) currentView.findViewById(R.id.EditProfileSurnameEditText);
         emailEditText = (EditText) currentView.findViewById(R.id.EditProfileEmailEditText);
@@ -80,6 +87,26 @@ public class EditProfileFragment extends Fragment {
         updateButton = (Button) currentView.findViewById(R.id.UpdateProfileButton);
         updateButton.setOnClickListener(buttonListener);
 
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        toolbarTextView.setText("Edit Your Profile");
+        setupData();
+    }
+
+    private void setupData()
+    {
+        nameEditText.setText(appSharedPreferences.getString("Name", ""));
+        surnameEditText.setText(appSharedPreferences.getString("Surname", ""));
+        emailEditText.setText(appSharedPreferences.getString("EmailAddress", ""));
+        securityQuestionEditText.setText(appSharedPreferences.getString("SecurityQuestion", ""));
+        securityAnswerEditText.setText(appSharedPreferences.getString("SecurityAnswer", ""));
+        weightEditText.setText(appSharedPreferences.getString("Weight", ""));
+        heightEditText.setText(appSharedPreferences.getString("Height", ""));
+        licenseNoEditText.setText(appSharedPreferences.getString("LicenseNo", ""));
+        passwordEditText.setText(appSharedPreferences.getString("Password", ""));
     }
 
 }

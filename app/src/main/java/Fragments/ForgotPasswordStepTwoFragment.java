@@ -27,6 +27,7 @@ public class ForgotPasswordStepTwoFragment extends Fragment {
     private SharedPreferences appSharedPreferences;
     private ForgotPasswordListener buttonListener;
     private Button resetPasswordButton;
+    private TextView toolbarTextView;
 
     public ForgotPasswordStepTwoFragment() {
         // Required empty public constructor
@@ -44,6 +45,8 @@ public class ForgotPasswordStepTwoFragment extends Fragment {
     private void initializeComponents(View currentView) {
         appSharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
         buttonListener = new ForgotPasswordListener(getActivity());
+        toolbarTextView = (TextView) getActivity().findViewById(R.id.LoginActivityToolbarTextView);
+        toolbarTextView.setText("Change Your Password - Final Step");
         securityAnswerEditText = (EditText) currentView.findViewById(R.id.ForgotPasswordSecurityAnswerEditText);
         securityQuestionTextView = (TextView) currentView.findViewById(R.id.ForgotPasswordAnswerTextView);
         newPasswordEditText = (EditText) currentView.findViewById(R.id.ForgotPasswordNewPasswordEditText);
@@ -58,4 +61,9 @@ public class ForgotPasswordStepTwoFragment extends Fragment {
         securityQuestionTextView.setText(appSharedPreferences.getString("SecurityQuestion", ""));
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        toolbarTextView.setText("Change Your Password - Final Step");
+    }
 }

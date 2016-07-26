@@ -15,6 +15,7 @@ $password = $_POST['Password'];
 $securityQuestion = $_POST['SecurityQuestion'];
 $securityAnswer = $_POST['SecurityAnswer'];
 $type = "A";
+$dateRegistered = date("Y-m-d");
 
 if (isset($name, $surname, $country, $dateOfBirth, $emailAddress, $userName, $password, $securityQuestion, $securityAnswer)) {
 
@@ -48,6 +49,7 @@ if (isset($name, $surname, $country, $dateOfBirth, $emailAddress, $userName, $pa
             $insertAthlete->bindParam(8, $password, PDO::PARAM_STR);
             $insertAthlete->bindParam(9, $securityQuestion, PDO::PARAM_STR);
             $insertAthlete->bindParam(10, $securityAnswer, PDO::PARAM_STR);
+            $insertAthlete->bindParam(11, $dateRegistered, PDO::PARAM_STR);
             
             $insertAthlete->execute();
             if ($insertAthlete->rowCount() > 0) {

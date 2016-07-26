@@ -181,26 +181,36 @@ public class UpdateProfileBackgroundTask extends AsyncTask<String, String, Strin
                         } else {
 
                             JSONObject profileObject = new JSONObject(s);
-                            nameEditText.setText(profileObject.getString("Name"));
-                            surnameEditText.setText(profileObject.getString("Surname"));
-                            emailEditText.setText(profileObject.getString("EmailAddress"));
-                            passwordEditText.setText(profileObject.getString("Password"));
-                            securityQuestion.setText(profileObject.getString("SecurityQuestion"));
-                            securityAnswer.setText(profileObject.getString("SecurityAnswer"));
+                            editor.putString("Name", profileObject.getString("Name"));
+                            editor.putString("Surname", profileObject.getString("Surname"));
+                            editor.putString("EmailAddress", profileObject.getString("EmailAddress"));
+                            editor.putString("Password", profileObject.getString("Password"));
+                            editor.putString("SecurityQuestion", profileObject.getString("SecurityQuestion"));
+                            editor.putString("SecurityAnswer", profileObject.getString("SecurityAnswer"));
+                            editor.putString("LicenseNo", profileObject.getString("LicenseNo"));
+                            editor.putString("DateRegistered", profileObject.getString("DateRegistered"));
+                            editor.putString("Country", profileObject.getString("Country"));
+                            editor.putString("UserType", "Athlete");
+
                             if (!profileObject.getString("Weight").equals("null")) {
-                                weightEditText.setText(profileObject.getString("Weight"));
+                                editor.putString("Weight", profileObject.getString("Weight"));
+                            } else {
+                                editor.putString("Weight", "N/A");
                             }
                             if (!profileObject.getString("Height").equals("null")) {
-                                heightEditText.setText(profileObject.getString("Height"));
+                                editor.putString("Height", profileObject.getString("Height"));
+                            } else {
+                                editor.putString("Height", "N/A");
                             }
+                            editor.putString("Gender", profileObject.getString("Gender"));
+                            editor.commit();
+
                             if (profileObject.getString("Gender").equalsIgnoreCase("Male")) {
                                 genderSpinner.setSelectedIndex(1);
                             } else {
                                 genderSpinner.setSelectedIndex(0);
                             }
-
-                            setupMainProfilePage(profileObject.getString("Name") + " "+profileObject.getString("Surname"), profileObject.getString("Height"), profileObject.getString("Weight"), profileObject.getString("DateRegistered"), "Athlete");
-
+                            //setupMainProfilePage(profileObject.getString("Name") + " "+profileObject.getString("Surname"), profileObject.getString("Height"), profileObject.getString("Weight"), profileObject.getString("DateRegistered"), "Athlete");
                         }
                     }
                     break;

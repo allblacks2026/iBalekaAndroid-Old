@@ -68,7 +68,7 @@
                 <TextView
                    style="@style/TextViewStyle"
                     android:id = "@+id/dateRegisteredTextView"
-                    android:text="@string/sample_registration_date"
+                    android:text=""
                     android:layout_below="@id/basicInformationHeader"
                     android:layout_alignParentEnd="true"
                     android:layout_toEndOf="@id/dateRegisteredLabel"
@@ -99,8 +99,24 @@
                 <TextView
                     style="@style/TextViewStyle"
                     android:id = "@+id/totalEventRunsTextView"
-                    android:text = "@string/sample_total_event_runs_string"
+                    android:text = ""
                     android:layout_alignBaseline="@id/totalEventRunsLabel"
+                    android:layout_alignParentEnd="true"
+                    android:layout_margin="5dp"
+                    />
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:id = "@+id/countryLabel"
+                    android:text="@string/country_string"
+                    android:layout_margin="5dp"
+                    android:layout_below="@id/totalEventRunsLabel"
+                    android:layout_alignParentStart="true"/>
+
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:id = "@+id/countryTextView"
+                    android:text = ""
+                    android:layout_alignBaseline="@id/countryLabel"
                     android:layout_alignParentEnd="true"
                     android:layout_margin="5dp"
                     />
@@ -110,7 +126,7 @@
                     android:text="@string/summarised_results_string"
                     android:background="@color/primary_dark"
                     android:textColor="@android:color/white"
-                    android:layout_below="@id/totalEventRunsLabel"
+                    android:layout_below="@id/countryLabel"
                     android:layout_width="match_parent"
                     android:layout_margin="5dp"
                     android:id = "@+id/summarisedResultsHeader"/>

@@ -21,7 +21,6 @@ import java.net.URLEncoder;
 
 import AppConstants.ExecutionMode;
 import Models.UserCredential;
-import Utilities.iBalekaSingleton;
 import allblacks.com.iBaleka.MainActivity;
 
 /**
@@ -43,7 +42,6 @@ public class RegistrationBackgroundTask extends AsyncTask<String, String, String
         progressDialog = new ProgressDialog(currentContext);
         globalPreferences = PreferenceManager.getDefaultSharedPreferences(currentActivity);
         globalEditor = globalPreferences.edit();
-        iBalekaSingleton singleton = iBalekaSingleton.getInstance();
     }
 
     public void setUser(UserCredential user) {

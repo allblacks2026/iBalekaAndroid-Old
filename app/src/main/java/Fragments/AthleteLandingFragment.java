@@ -4,9 +4,11 @@ package Fragments;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import allblacks.com.iBaleka.R;
 
@@ -16,6 +18,8 @@ import allblacks.com.iBaleka.R;
 public class AthleteLandingFragment extends Fragment {
 
     private SharedPreferences globalPreferences;
+    private TextView toolbarTextView;
+
     public AthleteLandingFragment() {
         // Required empty public constructor
     }
@@ -25,6 +29,10 @@ public class AthleteLandingFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        globalPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        toolbarTextView = (TextView) getActivity().findViewById(R.id.MainActivityTextView);
+        String welcomeString = "Hi, " + globalPreferences.getString("Name", "") + "!";
+        toolbarTextView.setText(welcomeString);
         return inflater.inflate(R.layout.fragment_athlete_landing, container, false);
     }
     @Override
@@ -36,7 +44,7 @@ public class AthleteLandingFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        getRetainInstance();
+
 
     }
 }

@@ -152,6 +152,12 @@
     <string name="security_title">Your Basic Security Information</string>
     <string name="facebook_app_id">1828138320753956</string>
     <string name="google_sign_up_string">Sign In With Google</string>
+    <string name="country_string">Your Country:</string>
+    <string name="event_distance_string">Event Total Distance (km):</string>
+    <string name="event_time_string">Event Time:</string>
+    <string name="event_message_string">Event Condition(s):</string>
+    <string name="start_point_string">Start Point Location:</string>
+    <string name="end_point_string">End Point Location:</string>
     <string-array name="countries_list">
         <item>Afghanistan</item>
         <item>Albania</item>

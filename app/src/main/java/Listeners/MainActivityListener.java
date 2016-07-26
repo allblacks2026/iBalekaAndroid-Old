@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 import com.jaredrummler.materialspinner.MaterialSpinner;
 
 import AppConstants.ExecutionMode;
+import BackgroundTasks.EventRegistrationBackgroundTask;
 import BackgroundTasks.UpdateProfileBackgroundTask;
 import Utilities.DeviceHardwareChecker;
 import Utilities.TextSanitizer;
@@ -26,8 +28,9 @@ public class MainActivityListener implements View.OnClickListener {
     private TextView mainActivityText;
     private String [] genderList = new String[] {"None Selected", "Male", "Female"};
     private SharedPreferences activityPreferences;
+    private SharedPreferences globalPreferences;
+    private SharedPreferences.Editor globalEditor;
     private SharedPreferences.Editor editor;
-
 
     public MainActivityListener(Activity currentActivity) {
         this.currentActivity = currentActivity;
@@ -41,6 +44,9 @@ public class MainActivityListener implements View.OnClickListener {
        switch (v.getId()) {
            case R.id.UpdateProfileButton:
                 processUpdateProfile();
+               break;
+           case R.id.EventDetailsRegisterForEvent:
+                processRegisterForEvent();
                break;
        }
     }
@@ -129,6 +135,19 @@ public class MainActivityListener implements View.OnClickListener {
             displayMessage("Check Your Internet Connection", "You are not connected to the internet. Please check your internet connection");
         }
 
+    }
 
+    private void processRegisterForEvent() {
+        //Get the selected event details from shared preferences
+        globalPreferences = currentActivity.getSharedPreferences("EventPreferences", Context.MODE_PRIVATE);
+        SharedPreferences global = PreferenceManager.getDefaultSharedPreferences(currentActivity);
+        String eventID = globalPreferences.getString("EventID", "");
+        String emailAddress = global.getString("EmailAddress", "");
+        if (eventID != "" && emailAddress != "") {
+            EventRegistrationBackgroundTask task = new EventRegistrationBackgroundTask(currentActivity);
+            task.execute(eventID, emailAddress);
+        } else {
+            displayMessage("Error Getting Event", "The system needs to know which event or email is being registered for");
+        }
     }
 }

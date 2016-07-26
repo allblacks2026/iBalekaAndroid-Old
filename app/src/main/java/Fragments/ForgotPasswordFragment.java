@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import Listeners.LoginButtonListener;
 import allblacks.com.iBaleka.R;
@@ -18,6 +19,7 @@ public class ForgotPasswordFragment extends Fragment {
     private EditText usernameEditText;
     private Button nextStepButton;
     private LoginButtonListener buttonListener;
+    private TextView toolbarTextView;
 
     public ForgotPasswordFragment() {
         // Required empty public constructor
@@ -38,6 +40,13 @@ public class ForgotPasswordFragment extends Fragment {
         nextStepButton = (Button) currentView.findViewById(R.id.ForgotPasswordNextStepButton);
         buttonListener = new LoginButtonListener(this.getActivity());
         nextStepButton.setOnClickListener(buttonListener);
+        toolbarTextView = (TextView) getActivity().findViewById(R.id.LoginActivityToolbarTextView);
+        toolbarTextView.setText("Change Your Password");
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        toolbarTextView.setText("Change Your Password");
+    }
 }

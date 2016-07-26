@@ -11,6 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import java.util.List;
 
@@ -29,11 +30,11 @@ public class SearchResultsFragment extends Fragment {
     private SearchResultsAdapter searchAdapter;
     private List<Event> eventsList;
     private TabLayout searchTabLayout;
+    private TextView toolbarTextView;
 
     public SearchResultsFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -45,9 +46,8 @@ public class SearchResultsFragment extends Fragment {
     }
 
     private void initializeComponents(View thisView) {
-
-
-
+        toolbarTextView = (TextView) getActivity().findViewById(R.id.MainActivityTextView);
+        toolbarTextView.setText("View Search Results");
     }
 
     private void startSearch()
@@ -77,4 +77,9 @@ public class SearchResultsFragment extends Fragment {
         dialogMessage.show();
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        toolbarTextView.setText("View Search Results");
+    }
 }

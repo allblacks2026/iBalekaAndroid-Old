@@ -1,21 +1,21 @@
 package Fragments;
 
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import allblacks.com.iBaleka.R;
 
-public class ForgotPasswordFinalStepFragment extends Fragment {
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class RegisteredEventsFragment extends Fragment {
 
-    private SharedPreferences appSharedPreferences;
-    private TextView toolbarTextView;
-    public ForgotPasswordFinalStepFragment() {
+
+    public RegisteredEventsFragment() {
         // Required empty public constructor
     }
 
@@ -24,7 +24,7 @@ public class ForgotPasswordFinalStepFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_forgot_password_final_step, container, false);
+        return inflater.inflate(R.layout.fragment_registered_events, container, false);
     }
 
 }
