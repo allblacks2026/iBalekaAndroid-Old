@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.os.AsyncTask;
+import android.support.v7.widget.RecyclerView;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -18,6 +19,12 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.List;
+
+import Adapters.RegisteredEventsAdapter;
+import Models.RegisteredEvent;
+import allblacks.com.iBaleka.R;
 
 /**
  * Created by Okuhle on 7/25/2016.
@@ -27,9 +34,11 @@ public class AthleteEventBackgroundTask extends AsyncTask<String, String, String
     private String baseUrl = "http://154.127.61.157/ibaleka/";
     private Activity currentActivity;
     private ProgressDialog progressDialog;
+    private List<RegisteredEvent> registeredEventList;
 
     public AthleteEventBackgroundTask(Activity currentActivity) {
         this.currentActivity = currentActivity;
+        registeredEventList = new ArrayList<>();
     }
 
     @Override
@@ -91,9 +100,19 @@ public class AthleteEventBackgroundTask extends AsyncTask<String, String, String
                 displayMessage("No Registered Events", "No event registrations were found. Please register for an event");
             } else {
                 JSONArray array = new JSONArray(s);
-                for (int a = 0; a < array.length(); a++) {
-                    JSONObject object = array.getJSONObject(a);
-                    
+                if (array != null) {
+                    for (int a = 0; a < array.length(); a++) {
+                        JSONObject object = array.getJSONObject(a);
+                        RegisteredEvent thisEvent = new RegisteredEvent(object.getString("AthleteID"), object.getString("EventID"), object.getString("Description"), object.getString("Date"), object.getString("Time"), object.getString("Location"));
+                        registeredEventList.add(thisEvent);
+                    }
+
+                    RecyclerView registeredEventsRecyclerView = (RecyclerView) currentActivity.findViewById(R.id.RegisteredEventsRecyclerView);
+                    RegisteredEventsAdapter adapter = new RegisteredEventsAdapter(currentActivity);
+                    adapter.setRegisteredEventList(registeredEventList);
+                    registeredEventsRecyclerView.setAdapter(adapter);
+                } else {
+                    displayMessage("Error", s);
                 }
             }
         }

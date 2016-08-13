@@ -13,9 +13,12 @@ import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.jaredrummler.materialspinner.MaterialSpinner;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Random;
 
 import BackgroundTasks.RegistrationBackgroundTask;
@@ -76,6 +79,7 @@ public class RegistrationButtonListener implements View.OnClickListener {
                 int selectedCountryIndex = selectedCountry.getSelectedIndex();
                 String country = countryList[selectedCountryIndex];
 
+                String selectedDate = globalPreferences.getString("DateOfBirth", "");
 
                 if (enteredName.getText().toString().length() != 0 && enteredSurname.getText().toString().trim() != null && enteredEmail.getText().toString().trim() != null) {
 
@@ -125,15 +129,15 @@ public class RegistrationButtonListener implements View.OnClickListener {
                 if (checker.isConnectedToInternet()) {
                     EditText usernameEditText = (EditText) currentActivity.findViewById(R.id.UsernameEditText);
                     EditText passwordEditText = (EditText) currentActivity.findViewById(R.id.PasswordEditText);
-                    EditText securityQuestionEditText = (EditText) currentActivity.findViewById(R.id.SecurityQuestionEditText);
+                    MaterialSpinner securityQuestionSpinner = (MaterialSpinner) currentActivity.findViewById(R.id.SecurityQuestionSpinner);
                     EditText securityAnswerEditText = (EditText) currentActivity.findViewById(R.id.SecurityAnswerEditText);
 
-                    if (usernameEditText.getText().toString() != null && passwordEditText.getText().toString() != null && securityQuestionEditText.getText().toString() != null && securityAnswerEditText.getText().toString() != null && selectedDay == 0 && selectedMonth == 0 && selectedYear == 0) {
+                    if (usernameEditText.getText().toString() != null && passwordEditText.getText().toString() != null && securityQuestionSpinner.getText().toString() != null && securityAnswerEditText.getText().toString() != null && selectedDay == 0 && selectedMonth == 0 && selectedYear == 0) {
                         String username = TextSanitizer.sanitizeText(usernameEditText.getText().toString(), false);
                         String password = TextSanitizer.sanitizeText(passwordEditText.getText().toString(), false);
-                        String question = TextSanitizer.sanitizeText(securityQuestionEditText.getText().toString(), false);
-                        String answer = TextSanitizer.sanitizeText(securityAnswerEditText.getText().toString(), false);
+                        String question = TextSanitizer.sanitizeText(securityQuestionSpinner.getText().toString(), false);
 
+                        String answer = TextSanitizer.sanitizeText(securityAnswerEditText.getText().toString(), false);
                         boolean[] isValid = new boolean[4];
                         isValid[0] = TextSanitizer.isValidText(username, 1, 20);
                         isValid[1] = TextSanitizer.isValidText(password, 1, 20);

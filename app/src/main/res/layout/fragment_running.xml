@@ -1,11 +1,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="fill_parent"
-             android:layout_height="fill_parent"
-             tools:context="Fragments.StartRunFragment"
-              android:orientation="vertical"
-              android:weightSum="100"
-            >
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:context="Fragments.RunningFragment"
+    android:orientation="vertical"
+    android:weightSum="100"
+    >
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -16,7 +16,7 @@
         <com.google.android.gms.maps.MapView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id = "@+id/startRunMapLayout"
+            android:id = "@+id/RunningMapLayout"
             android:visibility="visible"
             ></com.google.android.gms.maps.MapView>
     </LinearLayout>
@@ -27,7 +27,7 @@
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id = "@+id/runInformationCardView"
+            android:id = "@+id/RunningRunInformationCardView"
             android:layout_margin="5dp"
             >
             <RelativeLayout
@@ -43,84 +43,78 @@
                     android:background="@color/primary"/>
                 <TextView
                     style="@style/TextViewStyle"
-                    android:id = "@+id/elapsedTimeLabel"
+                    android:id = "@+id/RunningElapsedTimeLabel"
                     android:text="@string/elapsed_time_string"
                     android:layout_below="@id/RunInformationHeading"
                     />
                 <TextView
                     style="@style/TextViewStyle"
-                    android:id = "@+id/elapsedTimeTextView"
+                    android:id = "@+id/RunningElapsedTimeTextView"
                     android:layout_alignParentEnd="true"
-                    android:layout_alignBaseline="@id/elapsedTimeLabel"
+                    android:layout_alignBaseline="@id/RunningElapsedTimeLabel"
                     android:text = "@string/sample_time_string"/>
                 <TextView
                     style="@style/TextViewStyle"
                     android:text="@string/total_distance_string"
-                    android:layout_below="@id/elapsedTimeLabel"
-                    android:id = "@+id/distanceCoveredLabel"
-                    android:layout_alignParentLeft="true"/>
+                    android:layout_below="@id/RunningElapsedTimeLabel"
+                    android:id = "@+id/RunningDistanceCoveredLabel"
+                    android:layout_alignParentStart="true"/>
                 <TextView
                     style="@style/TextViewStyle"
-                    android:id = "@+id/distanceCoveredTextView"
+                    android:id = "@+id/RunningDistanceCoveredTextView"
                     android:text="0.00"
-                    android:layout_below="@id/elapsedTimeTextView"
-                    android:layout_alignBaseline="@id/distanceCoveredLabel"
+                    android:layout_below="@id/RunningElapsedTimeTextView"
+                    android:layout_alignBaseline="@id/RunningDistanceCoveredLabel"
                     android:layout_alignParentEnd="true"/>
                 <TextView
                     style="@style/TextViewStyle"
                     android:id = "@+id/totalCaloriesLabel"
                     android:text="@string/total_calories_string"
-                    android:layout_below="@id/distanceCoveredLabel"
+                    android:layout_below="@id/RunningDistanceCoveredLabel"
                     android:layout_alignParentStart="true"/>
                 <TextView
                     style="@style/TextViewStyle"
-                    android:id = "@+id/totalCaloriesBurntTextView"
-                    android:layout_below="@id/distanceCoveredTextView"
+                    android:id = "@+id/RunningTotalCaloriesBurntTextView"
+                    android:layout_below="@id/RunningDistanceCoveredTextView"
                     android:layout_alignParentEnd="true"
-                    android:text=""/>
+                    android:layout_alignBaseline="@id/totalCaloriesLabel"
+                    android:text="0.0"/>
                 <TextView
                     style="@style/TextViewStyle"
-                    android:id = "@+id/runnerSpeedLabel"
+                    android:id = "@+id/RunnerRunnerSpeedLabel"
                     android:text="@string/runner_speed_string"
                     android:layout_alignParentStart="true"
                     android:layout_below="@id/totalCaloriesLabel"/>
                 <TextView
                     style="@style/TextViewStyle"
-                    android:id = "@+id/runnerSpeedTextView"
+                    android:id = "@+id/RunningRunnerSpeedTextView"
                     android:layout_alignParentEnd="true"
-                    android:layout_below="@id/totalCaloriesBurntTextView"
-                    android:text=""/>
+                    android:layout_below="@id/RunningTotalCaloriesBurntTextView"
+                    android:layout_alignBaseline="@id/RunnerRunnerSpeedLabel"
+                    android:text="0.0"/>
+
+
 
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/custom_button"
-                    android:text="@string/pause_run_string"
-                    android:textColor="#FFF"
-                    android:layout_margin="5dp"
-                    android:layout_gravity="left"
-                    android:layout_alignParentLeft="true"
-                    android:layout_below="@id/runnerSpeedLabel"
-                    android:id = "@+id/pauseRunButton"/>
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id = "@+id/startRunButton"
+                    android:id = "@+id/RunningStartRunButton"
                     android:text="@string/start_run_text"
                     android:background="@drawable/custom_button"
                     android:textColor="@android:color/white"
-                    android:layout_centerHorizontal="true"
-                    android:layout_alignBaseline="@id/pauseRunButton"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@id/RunnerRunnerSpeedLabel"
+
+
                     />
                 <Button
                     android:background="@drawable/custom_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id = "@+id/endRunButton"
+                    android:id = "@+id/RunningEndRunButton"
                     android:text="@string/end_run_string"
                     android:textColor="#FFF"
-                    android:layout_alignBaseline="@id/pauseRunButton"
+                    android:layout_alignBaseline="@id/RunningStartRunButton"
                     android:layout_alignParentEnd="true"
                     android:layout_margin="5dp"
                     />

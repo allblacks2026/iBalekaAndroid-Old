@@ -89,7 +89,6 @@ public class LoginActivity extends AppCompatActivity {
         if (fragmentManager.getBackStackEntryCount() > 0) {
             fragmentManager.popBackStack();
         } else {
-            loginActivityTextView.setText("Please Login to Continue");
             super.onBackPressed();
         }
     }

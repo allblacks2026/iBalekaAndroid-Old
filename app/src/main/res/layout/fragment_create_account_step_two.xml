@@ -1,8 +1,9 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             tools:context="Fragments.CreateAccountStepTwoFragment">
+             tools:context="Fragments.CreateAccountStepTwoFragment"
+    android:orientation="vertical">
     <TextView
         style="@style/TextViewStyle"
         android:text="@string/account_reg_text"
@@ -20,9 +21,9 @@
         android:inputType="textPassword"
         android:id = "@+id/PasswordEditText"
         android:layout_below="@id/UsernameEditText"/>
-    <EditText
+    <com.jaredrummler.materialspinner.MaterialSpinner
         style="@style/EditTexStyle"
-        android:id = "@+id/SecurityQuestionEditText"
+        android:id = "@+id/SecurityQuestionSpinner"
         android:hint="@string/security_question_text"
         android:layout_below="@id/PasswordEditText"/>
     <EditText
@@ -30,14 +31,16 @@
         android:hint="@string/security_answer_text"
         android:maxLines="3"
         android:id = "@+id/SecurityAnswerEditText"
-        android:layout_below="@id/SecurityQuestionEditText"/>
+/>
 
     <Button
         style="@style/ButtonStyle"
         android:text="@string/create_account_text"
         android:id = "@+id/CreateAccountButton"
-        android:layout_below="@id/SecurityAnswerEditText"/>
+        android:layout_below="@id/SecurityAnswerEditText"
+        android:layout_gravity="center"
+        />
 
 
 
-</RelativeLayout>
+</LinearLayout>

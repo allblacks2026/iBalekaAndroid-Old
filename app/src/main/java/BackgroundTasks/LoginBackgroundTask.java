@@ -2,6 +2,8 @@ package BackgroundTasks;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -21,7 +23,9 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 
+import Fragments.LoginFragment;
 import allblacks.com.iBaleka.MainActivity;
+import allblacks.com.iBaleka.R;
 
 /**
  * Created by Okuhle on 7/11/2016.
@@ -139,7 +143,11 @@ public class LoginBackgroundTask extends AsyncTask<String, String, String> {
         messageBox.setPositiveButton("Got It", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-
+                LoginFragment fragment = new LoginFragment();
+                FragmentManager manager = currentContext.getFragmentManager();
+                FragmentTransaction loginTrans = manager.beginTransaction();
+                loginTrans.replace(R.id.LoginActivityContentArea, fragment, "LoginFragment");
+                loginTrans.commit();
             }
         });
         messageBox.show();

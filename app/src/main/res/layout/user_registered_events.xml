@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id = "@+id/AthleteRegisteredEventCardView">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:maxLines="4"
+                android:ellipsize="none"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/RegisteredEventTitleTextView"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:background="@color/primary_dark"
+                android:textColor="@color/whiteColor"/>
+            <TextView
+                android:maxLines="4"
+                android:ellipsize="none"
+                android:id="@+id/RegisteredEventTimeTextView"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:textAlignment="center"/>
+            <TextView
+                android:maxLines="4"
+                android:ellipsize="none"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id = "@+id/RegisteredEventsDateTextView"
+                android:textAlignment="center"/>
+            <TextView
+                android:maxLines="4"
+                android:ellipsize="none"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:id = "@+id/RegisteredEventsLocationTextView"/>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>

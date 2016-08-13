@@ -11,8 +11,11 @@ import android.widget.TextView;
 
 import Fragments.AthleteLandingFragment;
 import Fragments.ProfileFragment;
+import Fragments.RegisteredEventsFragment;
+import Fragments.RunningFragment;
 import Fragments.StartRunFragment;
 import Fragments.StartSearchFragment;
+import Utilities.DeviceHardwareChecker;
 import allblacks.com.iBaleka.R;
 
 /**
@@ -62,11 +65,11 @@ public class NavigationMenuOnItemSelectedListener implements NavigationView.OnNa
             case R.id.athleteStartRun:
                 navigationView.getMenu().clear();
                 navigationView.inflateMenu(R.menu.athlete_navigation_menu);
-                StartRunFragment startRunFragment = new StartRunFragment();
+                RunningFragment startRunFragment = new RunningFragment();
                 FragmentTransaction startRunTransaction = mgr.beginTransaction();
                 startRunTransaction.replace(R.id.MainActivityContentArea, startRunFragment,
-                        "StartRunFragment");
-                startRunTransaction.addToBackStack("StartRunFragment");
+                        "RunningFragment");
+                startRunTransaction.addToBackStack("RunningFragment");
                 drawerLayout.closeDrawers();
                 startRunTransaction.commit();
                 break;
@@ -81,6 +84,22 @@ public class NavigationMenuOnItemSelectedListener implements NavigationView.OnNa
                 drawerLayout.closeDrawers();
                 searchFragmentTransaction.commit();
                 break;
+            case R.id.viewRegisteredEvents:
+                DeviceHardwareChecker checker = new DeviceHardwareChecker(currentActivity);
+                checker.checkNetworkConnection();
+                if (checker.isConnectedToInternet()) {
+                    drawerLayout.closeDrawers();
+                    navigationView.getMenu().clear();
+                    navigationView.inflateMenu(R.menu.athlete_navigation_menu);
+                    RegisteredEventsFragment fragment = new RegisteredEventsFragment();
+                    FragmentTransaction repFragment = mgr.beginTransaction();
+                    repFragment.replace(R.id.MainActivityContentArea, fragment, "RegisteredEventsFragment");
+                    repFragment.addToBackStack("RegisteredEvent");
+                    repFragment.commit();
+                } else {
+                    drawerLayout.closeDrawers();
+                }
+
         }
         return true;
     }

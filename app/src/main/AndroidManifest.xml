@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest package="allblacks.com.iBaleka"
           xmlns:android="http://schemas.android.com/apk/res/android">
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.BODY_SENSORS"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>/>
 
     <application
         android:allowBackup="true"
@@ -17,7 +16,8 @@
         android:name="android.support.multidex.MultiDexApplication"
         >
         <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyDXMQFRTA-9ljgH70jMmbKPasyoIqLzpks"/>
-        <activity android:name="allblacks.com.iBaleka.AppSplashScreen">
+        <activity android:name="allblacks.com.iBaleka.AppSplashScreen"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -25,9 +25,12 @@
             </intent-filter>
         </activity>
         <activity android:name="allblacks.com.iBaleka.LoginActivity"
-                  android:windowSoftInputMode="stateUnchanged">
+                  android:windowSoftInputMode="stateUnchanged"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name="allblacks.com.iBaleka.MainActivity">
+        <activity android:name="allblacks.com.iBaleka.MainActivity"
+            android:screenOrientation="portrait"
+            >
         </activity>
     </application>
 </manifest>

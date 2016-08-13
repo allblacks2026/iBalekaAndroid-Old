@@ -24,6 +24,9 @@
                 android:layout_margin="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:maxLines="4"
+                android:scrollHorizontally="false"
+                android:ellipsize="none"
                 android:id = "@+id/EventDetails_EventNameLabel"
                 android:layout_alignParentEnd="true"
                 android:layout_alignBaseline="@id/EventDetails_EventNameTextView"
@@ -41,6 +44,9 @@
                 android:layout_margin="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:maxLines="4"
+                android:scrollHorizontally="false"
+                android:ellipsize="none"
                 android:layout_alignBaseline="@id/EventDetailsLocationLabel"
                 android:layout_alignParentEnd="true"
                 android:id = "@+id/EventDetails_LocationLabel"
@@ -61,6 +67,9 @@
                 android:text="DISTANCE"
                 android:layout_alignBaseline="@id/EventDetailsDistanceTextView"
                 android:layout_alignParentEnd="true"
+                android:maxLines="4"
+                android:scrollHorizontally="false"
+                android:ellipsize="none"
                 android:layout_margin="5dp"/>
             <TextView
                 android:layout_width="wrap_content"
@@ -93,6 +102,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="CONDITION"
+                android:maxLines="4"
+                android:maxWidth="200dp"
+                android:scrollHorizontally="false"
+                android:ellipsize="none"
                 android:layout_alignBaseline="@id/EventDetailsConditionTextView"
                 android:layout_alignParentEnd="true"
                 android:id = "@+id/EventDetailsConditionLabel"/>
@@ -111,6 +124,10 @@
                 android:id = "@+id/EventDetailsStartPointLabel"
                 android:layout_alignBaseline="@id/EventDetailsStartPointTextView"
                 android:layout_alignParentEnd="true"
+                android:maxLines="4"
+                android:scrollHorizontally="false"
+                android:ellipsize="none"
+                android:maxWidth="200dp"
                 android:text = "START POINT"
                 android:layout_margin="5dp"/>
             <TextView
@@ -126,6 +143,10 @@
                 android:layout_height="wrap_content"
                 android:text="END POINT"
                 android:layout_margin="5dp"
+                android:maxLines="4"
+                android:maxWidth="200dp"
+                android:scrollHorizontally="false"
+                android:ellipsize="none"
                 android:layout_alignBaseline="@id/EventDetailsEndPointTextView"
                 android:layout_alignParentEnd="true"
                 android:id = "@+id/EventDetailsEndPointLabel"/>

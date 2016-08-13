@@ -154,7 +154,7 @@ public class EventDetailsFragment extends Fragment implements OnMapReadyCallback
 
     @Override
     public void onDestroy() {
-        checkpointList = new ArrayList<>();
+        mapObject.clear();
         super.onDestroy();
     }
 }

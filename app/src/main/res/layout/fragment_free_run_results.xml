@@ -1,0 +1,160 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="Fragments.FreeRunResultsFragment">
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:weightSum="100">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textSize = "18sp"
+                android:textStyle="bold"
+                android:text="Congratulations, User"
+                android:id = "@+id/FinishRunHeadingLabel"/>
+            <TextView
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:id = "@+id/FinishRunShortMessage"
+                android:text="You have just run 5.5KM at an average pace of 10.2 km/h"/>
+            <FrameLayout
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="100">
+                <com.google.android.gms.maps.MapView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id = "@+id/FinishRunMapView">
+                </com.google.android.gms.maps.MapView>
+            </FrameLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id = "@+id/FinishRunRelativeLayout"
+                android:layout_margin="5dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/finalised_run_string"
+                    android:textAlignment="center"
+                    android:textColor="@color/whiteColor"
+                    android:background="@color/primary_dark"
+                    android:id = "@+id/FinishRunSummarizedResultsHeading"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id = "@+id/FinishRunTotalTimeLabel"
+                    android:layout_alignParentStart="true"
+                    android:text="@string/time_string"
+                    android:layout_below="@id/FinishRunSummarizedResultsHeading"
+                    android:layout_marginTop="5dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id = "@+id/FinishRunTotalTimeTextView"
+                    android:layout_alignBaseline="@id/FinishRunTotalTimeLabel"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="5dp"
+                    android:text="00:00:00" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id = "@+id/FinishRunAverageSpeedLabel"
+                    android:text="@string/runner_speed_string"
+                    android:layout_below="@id/FinishRunTotalTimeLabel"
+                    android:layout_marginTop="5dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id = "@+id/FinishRunAverageSpeedTextView"
+                    android:text = "0.0"
+                    android:layout_alignBaseline="@id/FinishRunAverageSpeedLabel"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="5dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id = "@+id/FinishRunTotalDistanceLabel"
+                    android:text="@string/total_distance_label"
+                    android:layout_below="@id/FinishRunAverageSpeedLabel"
+                    android:layout_marginTop="5dp"
+                    android:layout_alignParentStart="true"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id = "@+id/FinishRunTotalDistanceTextView"
+                    android:layout_alignParentEnd="true"
+                    android:text="0.0"
+                    android:layout_alignBaseline="@id/FinishRunTotalDistanceLabel" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/total_calories_string"
+                    android:layout_below="@id/FinishRunTotalDistanceLabel"
+                    android:layout_marginTop="5dp"
+                    android:id = "@+id/FinishRunTotalCaloriesBurntLabel"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@id/FinishRunTotalCaloriesBurntLabel"
+                    android:layout_alignParentEnd="true"
+                    android:text="0.0"
+                    android:id = "@+id/FinishRunTotalCaloriesBurntTextView"
+                    android:layout_marginTop="5dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/highest_speed_string"
+                    android:id = "@+id/FinishRunHighestSpeedLabel"
+                    android:layout_below="@id/FinishRunTotalCaloriesBurntLabel"
+                    android:layout_marginTop="5dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id = "@+id/FinishRunHighestSpeedTextView"
+                    android:layout_alignBaseline="@id/FinishRunHighestSpeedLabel"
+                    android:text="0.0"
+                    android:layout_alignParentEnd="true"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id= "@+id/FinishRunWAVARating"
+                    android:text="@string/wava_rating_string"
+                    android:layout_below="@id/FinishRunHighestSpeedTextView"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="5dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/FinishRunWAVARatingTextView"
+                    android:text="0.0"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignBaseline="@id/FinishRunWAVARating"/>
+            </RelativeLayout>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/FinishRunButton"
+                android:layout_gravity="bottom|center"
+                android:text = "@string/finalize_run_string"
+                android:background="@drawable/custom_button"
+                android:textColor="@color/whiteColor"
+                android:padding="10sp"
+                android:layout_margin="5dp"/>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+</FrameLayout>

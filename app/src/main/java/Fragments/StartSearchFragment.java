@@ -87,7 +87,7 @@ public class StartSearchFragment extends Fragment implements GoogleApiClient.OnC
                 }
                 @Override
                 public void onError(Status status) {
-                    displayMessage("Error Getting Location", status.getStatusMessage());
+                    displayMessage("Error Getting Location", "Your search parameter yields no valid results");
                 }
             });
         FragmentManager mgr = getFragmentManager();
@@ -234,13 +234,5 @@ public class StartSearchFragment extends Fragment implements GoogleApiClient.OnC
         toolbarTextView.setText("Search For Event");
     }
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        FragmentManager manager = getActivity().getFragmentManager();
-        Fragment fragment = manager.findFragmentById(R.id.GoogleSearchFragment);
-        FragmentTransaction trans = manager.beginTransaction();
-        trans.remove(fragment);
-        trans.commit();
-    }
+
 }

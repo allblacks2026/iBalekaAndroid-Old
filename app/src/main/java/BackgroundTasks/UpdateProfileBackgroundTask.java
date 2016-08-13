@@ -130,7 +130,16 @@ public class UpdateProfileBackgroundTask extends AsyncTask<String, String, Strin
                     String securityQuestion = params[8];
                     String securityAnswer = params[9];
 
-                    String urlData = URLEncoder.encode("Name", "utf-8")+"="+URLEncoder.encode(name, "utf-8")+"&"+URLEncoder.encode("Surname", "utf-8")+"="+URLEncoder.encode(surname, "utf-8")+"&"+URLEncoder.encode("EmailAddress", "utf-8")+"="+URLEncoder.encode(emailAddress, "utf-8")+"&"+URLEncoder.encode("Password", "utf-8")+"="+URLEncoder.encode(password, "utf-8")+"&"+URLEncoder.encode("Weight", "utf-8")+"="+URLEncoder.encode(weight, "utf-8")+"&"+URLEncoder.encode("Height", "utf-8")+"="+URLEncoder.encode(height, "utf-8")+"&"+URLEncoder.encode("LicenseNo", "utf-8")+"="+URLEncoder.encode(licenseNo, "utf-8")+"&"+URLEncoder.encode("Gender", "utf-8")+"="+URLEncoder.encode(gender, "utf-8")+"&"+URLEncoder.encode("SecurityQuestion", "utf-8") +"="+URLEncoder.encode(securityQuestion, "utf-8")+"&"+URLEncoder.encode("SecurityAnswer", "utf-8")+"="+URLEncoder.encode(securityAnswer, "utf-8");
+                    String urlData = URLEncoder.encode("Name", "utf-8")+"="+URLEncoder.encode(name, "utf-8")
+                            +"&"+URLEncoder.encode("Surname", "utf-8")+"="+URLEncoder.encode(surname, "utf-8")
+                            +"&"+URLEncoder.encode("EmailAddress", "utf-8")+"="+URLEncoder.encode(emailAddress, "utf-8")
+                            +"&"+URLEncoder.encode("Password", "utf-8")+"="+URLEncoder.encode(password, "utf-8")
+                            +"&"+URLEncoder.encode("Weight", "utf-8")+"="+URLEncoder.encode(weight, "utf-8")
+                            +"&"+URLEncoder.encode("Height", "utf-8")+"="+URLEncoder.encode(height, "utf-8")
+                            +"&"+URLEncoder.encode("LicenseNo", "utf-8")+"="+URLEncoder.encode(licenseNo, "utf-8")
+                            +"&"+URLEncoder.encode("Gender", "utf-8")+"="+URLEncoder.encode(gender, "utf-8")
+                            +"&"+URLEncoder.encode("SecurityQuestion", "utf-8") +"="+URLEncoder.encode(securityQuestion, "utf-8")
+                            +"&"+URLEncoder.encode("SecurityAnswer", "utf-8")+"="+URLEncoder.encode(securityAnswer, "utf-8");
 
                     HttpURLConnection updateConnection = (HttpURLConnection) updateURL.openConnection();
                     updateConnection.setRequestMethod("POST");

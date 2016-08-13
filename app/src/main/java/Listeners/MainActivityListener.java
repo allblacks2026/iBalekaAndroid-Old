@@ -71,8 +71,8 @@ public class MainActivityListener implements View.OnClickListener {
         if (checker.isConnectedToInternet()) {
             Double weight = null;
             Double height = null;
-            String licenseNo = null;
-            String gender = null;
+            String licenseNo = "";
+            String gender = "";
 
             EditText nameEditText = (EditText) currentActivity.findViewById(R.id.EditProfileNameEditText);
             EditText surnameEditText = (EditText) currentActivity.findViewById(R.id.EditProfileSurnameEditText);
@@ -82,6 +82,8 @@ public class MainActivityListener implements View.OnClickListener {
             EditText heightEditText = (EditText) currentActivity.findViewById(R.id.HeightEditText);
             EditText licenseNoEditText = (EditText) currentActivity.findViewById(R.id.LicenseNumberEditText);
             MaterialSpinner selectedGender = (MaterialSpinner) currentActivity.findViewById(R.id.GenderSpinner);
+            EditText securityQuestion = (EditText) currentActivity.findViewById(R.id.EditProfileSecurityQuestionEditText);
+            EditText securityAnswer = (EditText) currentActivity.findViewById(R.id.EditProfileSecurityAnswerEditText);
 
             int genderIndex = selectedGender.getSelectedIndex();
             if (genderIndex != 0) {
@@ -91,6 +93,8 @@ public class MainActivityListener implements View.OnClickListener {
             String enteredSurname = surnameEditText.getText().toString().trim();
             String enteredEmail = emailEditText.getText().toString().trim();
             String enteredPassword = passwordEditText.getText().toString().trim();
+            String securityQuestionText = securityQuestion.getText().toString().trim();
+            String securityAnswerText = securityAnswer.getText().toString().trim();
             if (weightEditText.getText().toString() != "") {
                 weight = Double.parseDouble(weightEditText.getText().toString());
             }
@@ -105,19 +109,24 @@ public class MainActivityListener implements View.OnClickListener {
             enteredSurname = TextSanitizer.sanitizeText(enteredSurname, true);
             enteredEmail = TextSanitizer.sanitizeText(enteredEmail, true);
             enteredPassword = TextSanitizer.sanitizeText(enteredPassword, false);
+            securityQuestionText = TextSanitizer.sanitizeText(securityQuestionText, true);
+            securityAnswerText = TextSanitizer.sanitizeText(securityAnswerText, true);
 
 
-            boolean[] isValid = new boolean[4];
+            boolean[] isValid = new boolean[7];
             isValid[0] = TextSanitizer.isValidText(enteredName, 1, 100);
             isValid[1] = TextSanitizer.isValidText(enteredSurname, 1, 100);
             isValid[2] = TextSanitizer.isValidText(enteredEmail, 1, 100);
             isValid[3] = TextSanitizer.isValidText(enteredPassword, 3, 100);
+            isValid[4] = TextSanitizer.isValidText(securityQuestionText, 3, 100);
+            isValid[5] = TextSanitizer.isValidText(securityAnswerText, 3, 100);
 
             if (isValid[0] && isValid[1] && isValid[2] && isValid[3]) {
 
                 UpdateProfileBackgroundTask updateProfileBackgroundTask = new UpdateProfileBackgroundTask(currentActivity);
+
                 updateProfileBackgroundTask.setExecutionMode(ExecutionMode.EXECUTE_UPDATE_ATHLETE_PROFILE);
-                updateProfileBackgroundTask.execute(enteredName, enteredSurname, enteredEmail, enteredPassword, Double.toString(weight), Double.toString(height), licenseNo, gender);
+                updateProfileBackgroundTask.execute(enteredName, enteredSurname, enteredEmail, enteredPassword, Double.toString(weight), Double.toString(height), licenseNo, gender, securityQuestionText, securityAnswerText);
 
             } else {
 

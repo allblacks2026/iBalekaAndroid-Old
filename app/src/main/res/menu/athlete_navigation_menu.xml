@@ -18,5 +18,10 @@
     <item android:title="Search Events"
         android:icon="@drawable/search"
           android:id = "@+id/searchEvents"/>
+
+        <item android:title= "View Registered Events"
+            android:id = "@+id/viewRegisteredEvents"
+            android:icon="@drawable/ic_event_note"/>
+
     </group>
 </menu>
